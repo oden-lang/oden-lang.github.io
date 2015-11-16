@@ -1,0 +1,5 @@
+# Oden Language Documentation
+
+```
+make
+```

@@ -54,7 +54,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-chapter-title="Installation" data-filepath="installation.md" data-basepath="." data-revision="Mon Nov 16 2015 17:56:08 GMT+0100 (CET)">
+    <div class="book" data-level="4" data-chapter-title="Installation" data-filepath="installation.md" data-basepath="." data-revision="Mon Nov 16 2015 22:29:04 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -84,15 +84,7 @@
     
         <li class="chapter " data-level="1" data-path="index.html">
             
-                
-                    <a href="./index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>1.</b>
-                        
-                        Oden
-                    </a>
+            <span><b>1.</b> Oden</span>
             
             
         </li>
@@ -265,24 +257,13 @@ GitHub. Choose the version, preferrably the latest, and download the ZIP file fo
 operating system.</p>
 <p><em>There may be biniaries missing for some major operating systems.</em></p>
 <h2 id="building-from-source">Building From Source</h2>
-<h3 id="prerequisites">Prerequisites</h3>
-<ul>
-<li>Make</li>
-<li>Racket 6.x</li>
-<li>Go</li>
-<li><em>Node.js (only for building the documentation)</em></li>
-</ul>
 <h3 id="getting-the-code">Getting the Code</h3>
-<p>Go to <a href="https://github.com/oden-lang/oden" target="_blank">https://github.com/oden-lang/oden</a> and <code>git clone</code> or download a ZIP file with
-the source. ZIP files with source code are available in the
+<p>Go to <a href="https://github.com/oden-lang/oden" target="_blank">https://github.com/oden-lang/oden</a> and <code>git clone</code> or download a ZIP file
+with the source. ZIP files with source code are available in the
 <a href="https://github.com/oden-lang/oden/releases" target="_blank">Releases</a> as well.</p>
 <h3 id="build">Build</h3>
-<p>When you have the source you can create a distribution of Oden using Make.</p>
-<pre><code class="lang-bash">$ make dist
-...
-$ file target/odenc
-target/odenc: Mach-O <span class="hljs-number">64</span>-bit executable x86_64
-</code></pre>
+<p>When you have the source you can create a distribution of Oden by following the
+instructions in the <code>BUILD.md</code> file in the root of the source code tree.</p>
 <h3 id="docs">Docs</h3>
 <p>This documentation can be built if you have NodeJS installed.</p>
 <pre><code class="lang-bash">$ make docs

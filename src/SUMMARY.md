@@ -1,6 +1,6 @@
 # Summary
 
-* [Oden](README.md)
+* [Oden](oden.md)
 * [Motivation & Goals](motivation-and-goals.md)
 * [Contributing](contributing.md)
 * [Installation](installation.md)

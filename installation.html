@@ -54,7 +54,7 @@
     <body>
         
         
-    <div class="book" data-level="3" data-chapter-title="Installation" data-filepath="installation.md" data-basepath="." data-revision="Mon Nov 16 2015 22:30:21 GMT+0100 (CET)">
+    <div class="book" data-level="3" data-chapter-title="Installation" data-filepath="installation.md" data-basepath="." data-revision="Mon Nov 16 2015 22:35:11 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -258,12 +258,13 @@ with the source. ZIP files with source code are available in the
 <p>When you have the source you can create a distribution of Oden by following the
 instructions in the <code>BUILD.md</code> file in the root of the source code tree.</p>
 <h3 id="docs">Docs</h3>
-<p>This documentation can be built if you have NodeJS installed.</p>
-<pre><code class="lang-bash">$ make docs
-$ open target/oden/docs/index.html
+<p>This documentation can be built if you have NodeJS and Make.</p>
+<pre><code class="lang-bash">$ git <span class="hljs-built_in">clone</span> git@github.com:oden-lang/oden-lang.github.io.git
+$ <span class="hljs-built_in">cd</span> oden-lang.github.io
+$ make deps
+$ make docs
+$ open index.html
 </code></pre>
-<p>To start a live-reloading server, run <code>make watch-docs</code> and open <a href="http://localhost:4000" target="_blank">http://localhost:4000</a> in your
-browser.</p>
 
                     
                     </section>

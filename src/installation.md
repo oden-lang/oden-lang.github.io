@@ -26,13 +26,12 @@ instructions in the `BUILD.md` file in the root of the source code tree.
 
 ### Docs
 
-This documentation can be built if you have NodeJS installed.
+This documentation can be built if you have NodeJS and Make.
 
 ```bash
+$ git clone git@github.com:oden-lang/oden-lang.github.io.git
+$ cd oden-lang.github.io
+$ make deps
 $ make docs
-$ open target/oden/docs/index.html
+$ open index.html
 ```
-
-To start a live-reloading server, run `make watch-docs` and open http://localhost:4000 in your
-browser.
-

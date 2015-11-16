@@ -1,5 +1,7 @@
 # Oden Language Documentation
 
 ```
-make
+$ make deps
+$ make docs
+$ open index.html
 ```

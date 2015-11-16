@@ -13,29 +13,16 @@ operating system.
 
 ## Building From Source
 
-### Prerequisites
-
-* Make
-* Racket 6.x
-* Go
-* *Node.js (only for building the documentation)*
-
 ### Getting the Code
 
-Go to https://github.com/oden-lang/oden and `git clone` or download a ZIP file with
-the source. ZIP files with source code are available in the
+Go to https://github.com/oden-lang/oden and `git clone` or download a ZIP file
+with the source. ZIP files with source code are available in the
 [Releases](https://github.com/oden-lang/oden/releases) as well.
 
 ### Build
 
-When you have the source you can create a distribution of Oden using Make.
-
-```bash
-$ make dist
-...
-$ file target/odenc
-target/odenc: Mach-O 64-bit executable x86_64
-```
+When you have the source you can create a distribution of Oden by following the
+instructions in the `BUILD.md` file in the root of the source code tree.
 
 ### Docs
 

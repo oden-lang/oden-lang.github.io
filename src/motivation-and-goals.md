@@ -20,8 +20,8 @@ experimental language and it might change drastically*.
 * Generics.
 * The type system should offer heavy type inference. Possibly require
   type annotations on top-level forms.
-* Align with the built-in types of Go and provide simple
-  interoperability.
+* Immutable data structures and user-defined compound types.
+* Support the built-in types of Go and provide simple interoperability.
 * The prototype compiler should be easy to change.
 
 ### Secondary Goals
@@ -38,7 +38,7 @@ The first versions of Oden should **not** focus on:
   have to step in to a directory of output Go files and run `go build`
   etc.
 * Producing beautiful Go code.
-* Easy Oden-to-Go interopability (calling Oden code from Go). It
+* Easy Go-to-Oden interopability (calling Oden code from Go). It
   might turn out easy after all, but that is not an explicit goal.
 
 ### Non-goals

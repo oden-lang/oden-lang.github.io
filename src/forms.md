@@ -65,12 +65,7 @@ more arguments and a single expression as the body.
 (fn (x) (+ x 1))
 ```
 
-*The current version of Oden does not support polymorphic
-functions, i.e. all types have to be inferred or annotated for it to
-compile to Go. When `define` is implemented this will probably be
-fixed as well.*
-
-Function arguments can be annotated with types.
+Function arguments can also be annotated with types.
 
 ```scheme
 (fn ([x : int]) x)
@@ -86,6 +81,8 @@ When defining a function, a shorthand can be used.
 ```scheme
 (define (identity x) x) ;; same as (define (fn (x) x))
 ```
+
+Note that functions at the top-level can be polymorphic.
 
 ### Recursion
 

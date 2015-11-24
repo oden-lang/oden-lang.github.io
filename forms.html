@@ -54,7 +54,7 @@
     <body>
         
         
-    <div class="book" data-level="5.2" data-chapter-title="Forms" data-filepath="forms.md" data-basepath="." data-revision="Tue Nov 17 2015 06:59:49 GMT+0100 (CET)">
+    <div class="book" data-level="5.2" data-chapter-title="Forms" data-filepath="forms.md" data-basepath="." data-revision="Tue Nov 24 2015 10:34:58 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -284,11 +284,7 @@ e.g. <code>(map + numbers)</code>.</em></p>
 more arguments and a single expression as the body.</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">fn</span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> x <span class="hljs-number">1</span>)</span>)</span>
 </code></pre>
-<p><em>The current version of Oden does not support polymorphic
-functions, i.e. all types have to be inferred or annotated for it to
-compile to Go. When <code>define</code> is implemented this will probably be
-fixed as well.</em></p>
-<p>Function arguments can be annotated with types.</p>
+<p>Function arguments can also be annotated with types.</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">fn</span> <span class="hljs-list">(<span class="hljs-list">[<span class="hljs-keyword">x</span> : int]) x)
 
 <span class="hljs-comment">;; here the type of y is inferred</span>
@@ -298,6 +294,7 @@ fixed as well.</em></p>
 <p>When defining a function, a shorthand can be used.</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">identity</span> x)</span> x)</span> <span class="hljs-comment">;; same as (define (fn (x) x))</span>
 </code></pre>
+<p>Note that functions at the top-level can be polymorphic.</p>
 <h3 id="recursion">Recursion</h3>
 <p>Defined functions can call themselves recursively.</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">factorial</span> n)</span>

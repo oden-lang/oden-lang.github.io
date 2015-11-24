@@ -6,7 +6,7 @@
 ```scheme
 (pkg fibonacci)
 
-(define (fib [n : int])
+(define (fib n)
   (if (== n 1)
     0
     (if (== n 2)

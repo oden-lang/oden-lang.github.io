@@ -52,7 +52,7 @@
     <body>
         
         
-    <div class="book" data-level="0" data-chapter-title="Oden" data-filepath="oden.md" data-basepath="." data-revision="Tue Nov 24 2015 10:34:58 GMT+0100 (CET)">
+    <div class="book" data-level="0" data-chapter-title="Oden" data-filepath="oden.md" data-basepath="." data-revision="Tue Nov 24 2015 10:37:11 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -246,13 +246,13 @@
 
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">pkg</span> fibonacci)</span>
 
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">fib</span> <span class="hljs-list">[<span class="hljs-keyword">n</span> : int])
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">fib</span> n)</span>
   <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword">==</span> n <span class="hljs-number">1</span>)</span>
     <span class="hljs-number">0</span>
     <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword">==</span> n <span class="hljs-number">2</span>)</span>
       <span class="hljs-number">1</span>
-      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> <span class="hljs-list">(<span class="hljs-keyword">fib</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">-</span></span> n <span class="hljs-number">1</span>)</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">fib</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">-</span></span> n <span class="hljs-number">2</span>)</span>)</span>)</span>)</span>)</span>)
-</span></span></span></code></pre>
+      <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> <span class="hljs-list">(<span class="hljs-keyword">fib</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">-</span></span> n <span class="hljs-number">1</span>)</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">fib</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">-</span></span> n <span class="hljs-number">2</span>)</span>)</span>)</span>)</span>)</span>)</span>
+</code></pre>
 <p><strong>Welcome to the Oden Language Documentation!</strong></p>
 <p>Oden is a LISP-inspired language with static typing that compiles
 to native code using Go. The current implementation is working draft

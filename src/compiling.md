@@ -13,7 +13,7 @@ $ cat << EOF >> src/hello-world/main.oden
 (define (main)
   (fmt.Println "Hello, world!"))
 EOF
-$ odenc ./out
+$ odenc -o ./out
 $ GOPATH=$PWD/out go build -o hello-world hello-world/main
 $ ./hello_world
 Hello, world!

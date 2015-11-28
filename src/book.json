@@ -10,7 +10,7 @@
         }
     },
     "styles": {
-	"website": "styles/website.css"
+      "website": "styles/website.css"
     },
     "links": {
         "sharing": {

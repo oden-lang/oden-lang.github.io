@@ -9,6 +9,8 @@ Drawing inspiration from LISPs, Oden is built on lists. Lists are used for
 special forms and function application. A list can be written `(x y z ...)` or
 `[x y z ...]`, they are the same.
 
+*Note that there is no support for lists in runtime yet.*
+
 ## Number Literals
 
 The only supported number literal is that of the `int` type.
@@ -50,11 +52,18 @@ the infix operators of Go are called as regular functions in Oden.
 (== 1 2)
 (!= 1 2)
 (+ "Foo" "Bar")
+(and (not false) (or true (== 1 2)))
 ```
 
 *Currently it is not possible to use these functions as first-class
 values, passing them to functions or using them in a let,
 e.g. `(map + numbers)`.*
+
+## Boolean Logic
+
+Boolean logic functions `not`, `and` and `or` correspond to the Go operators
+`!`, `&&` and `||` respectively, but are written with prefix notation as all
+other function applications.
 
 ## Functions
 

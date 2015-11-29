@@ -54,7 +54,7 @@
     <body>
         
         
-    <div class="book" data-level="5.2" data-chapter-title="Forms" data-filepath="forms.md" data-basepath="." data-revision="Sat Nov 28 2015 16:21:23 GMT+0100 (CET)">
+    <div class="book" data-level="5.2" data-chapter-title="Forms" data-filepath="forms.md" data-basepath="." data-revision="Sun Nov 29 2015 13:14:42 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -248,6 +248,7 @@ describes those forms and how you can compose programs with them.</p>
 <p>Drawing inspiration from LISPs, Oden is built on lists. Lists are used for
 special forms and function application. A list can be written <code>(x y z ...)</code> or
 <code>[x y z ...]</code>, they are the same.</p>
+<p><em>Note that there is no support for lists in runtime yet.</em></p>
 <h2 id="number-literals">Number Literals</h2>
 <p>The only supported number literal is that of the <code>int</code> type.</p>
 <pre><code class="lang-scheme"><span class="hljs-number">123</span>
@@ -275,10 +276,15 @@ the infix operators of Go are called as regular functions in Oden.</p>
 <span class="hljs-list">(<span class="hljs-keyword">==</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>)</span>
 <span class="hljs-list">(<span class="hljs-keyword">!=</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>)</span>
 <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> <span class="hljs-string">&quot;Foo&quot;</span> <span class="hljs-string">&quot;Bar&quot;</span>)</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">and</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">not</span></span> false)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">or</span></span> true <span class="hljs-list">(<span class="hljs-keyword">==</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>)</span>)</span>)</span>
 </code></pre>
 <p><em>Currently it is not possible to use these functions as first-class
 values, passing them to functions or using them in a let,
 e.g. <code>(map + numbers)</code>.</em></p>
+<h2 id="boolean-logic">Boolean Logic</h2>
+<p>Boolean logic functions <code>not</code>, <code>and</code> and <code>or</code> correspond to the go operators
+<code>!</code>, <code>&amp;&amp;</code> and <code>||</code> respectively, but are written with prefix notation as all
+other function applications.</p>
 <h2 id="functions">Functions</h2>
 <p>A function is created using a <code>fn</code> expression. It supports zero or
 more arguments and a single expression as the body.</p>

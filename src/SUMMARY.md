@@ -9,4 +9,4 @@
   * [Type System](type-system.md)
   * [Forms](forms.md)
 * [Writing Oden Code](writing-oden-code.md)
-* [Oden Playground](playground.md)
+* [Playground](playground.md)

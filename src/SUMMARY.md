@@ -9,4 +9,4 @@
   * [Type System](type-system.md)
   * [Forms](forms.md)
 * [Writing Oden Code](writing-oden-code.md)
-* [Oden Playground](https://oden-playground.herokuapp.com/)
+* [Oden Playground](playground.md)

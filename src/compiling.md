@@ -10,10 +10,10 @@ $ cat << EOF >> src/hello-world/main.oden
 (pkg hello-world/main)
 (import fmt)
 
-(define (main)
+(def (main)
   (fmt.Println "Hello, world!"))
 EOF
-$ odenc -o ./out
+$ odenc --out-path=./out
 $ GOPATH=$PWD/out go build -o hello-world hello-world/main
 $ ./hello_world
 Hello, world!

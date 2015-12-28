@@ -51,7 +51,7 @@ the infix operators of Go are called as regular functions in Oden.
 (+ 100 (+ 50 25))
 (== 1 2)
 (!= 1 2)
-(+ "Foo" "Bar")
+(++ "Foo" "Bar")
 (and (not false) (or true (== 1 2)))
 ```
 
@@ -74,21 +74,12 @@ more arguments and a single expression as the body.
 (fn (x) (+ x 1))
 ```
 
-Function arguments can also be annotated with types.
-
-```scheme
-(fn ([x : int]) x)
-
-;; here the type of y is inferred
-(fn ([x : int] y) (+ x y))
-```
-
 ### Defining Functions
 
 When defining a function, a shorthand can be used.
 
 ```scheme
-(define (identity x) x) ;; same as (define (fn (x) x))
+(def (identity x) x) ;; same as (def (fn (x) x))
 ```
 
 Note that functions at the top-level can be polymorphic.
@@ -98,7 +89,7 @@ Note that functions at the top-level can be polymorphic.
 Defined functions can call themselves recursively.
 
 ```scheme
-(define (factorial n)
+(def (factorial n)
   (if (< n 2)
       1
       (* n (factorial (- n 1)))))

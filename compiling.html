@@ -54,7 +54,7 @@
     <body>
         
         
-    <div class="book" data-level="4" data-chapter-title="Compiling" data-filepath="compiling.md" data-basepath="." data-revision="Sun Nov 29 2015 21:45:12 GMT+0100 (CET)">
+    <div class="book" data-level="4" data-chapter-title="Compiling" data-filepath="compiling.md" data-basepath="." data-revision="Mon Dec 28 2015 13:50:27 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -265,10 +265,10 @@ $ cat &lt;&lt; EOF &gt;&gt; src/hello-world/main.oden
 (pkg hello-world/main)
 (import fmt)
 
-(define (main)
+(def (main)
   (fmt.Println <span class="hljs-string">&quot;Hello, world!&quot;</span>))
 EOF
-$ odenc -o ./out
+$ odenc --out-path=./out
 $ GOPATH=<span class="hljs-variable">$PWD</span>/out go build -o hello-world hello-world/main
 $ ./hello_world
 Hello, world!

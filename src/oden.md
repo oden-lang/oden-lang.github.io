@@ -9,7 +9,7 @@ and **should be considered highly experimental**.
 ```scheme
 (pkg fibonacci)
 
-(define (fib n)
+(def (fib n)
   (if (== n 1)
     0
     (if (== n 2)

@@ -54,7 +54,7 @@
     <body>
         
         
-    <div class="book" data-level="6" data-chapter-title="Writing Oden Code" data-filepath="writing-oden-code.md" data-basepath="." data-revision="Sun Nov 29 2015 21:45:12 GMT+0100 (CET)">
+    <div class="book" data-level="6" data-chapter-title="Writing Oden Code" data-filepath="writing-oden-code.md" data-basepath="." data-revision="Mon Dec 28 2015 13:50:27 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -264,10 +264,11 @@
 unlike in Go, specify the complete name, e.g. <code>(pkg a/b/c)</code>.</li>
 <li>Source files may use zero or more <code>import</code> declarations after the <code>pkg</code>
 declaration.</li>
-<li>Source files may, after <code>pkg</code> and any <code>import</code> declarations, define
-zero or more functions and values using <code>define</code>. The order of
-definitions does not matter - a value <code>foo</code> can be the last defined
-value even if it&apos;s referenced before.</li>
+<li>Source files may, after <code>pkg</code> and any <code>import</code> declarations, define zero or
+more functions and values using <code>def</code>. The order of definitions does not matter<ul>
+<li>a value <code>foo</code> can be the last defined value even if it&apos;s referenced before.</li>
+</ul>
+</li>
 </ul>
 <h2 id="example">Example</h2>
 <pre><code class="lang-scheme"><span class="hljs-comment">;; package declaration</span>
@@ -277,14 +278,14 @@ value even if it&apos;s referenced before.</li>
 <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">import</span></span> fmt)</span>
 
 <span class="hljs-comment">;; main function definition, must have type (-&gt; unit)</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> main <span class="hljs-list">(<span class="hljs-keyword">fn</span> <span class="hljs-list">()</span> <span class="hljs-list">(<span class="hljs-keyword">fmt.Println</span> result)</span>)</span>)</span>
+<span class="hljs-list">(<span class="hljs-keyword">def</span> main <span class="hljs-list">(<span class="hljs-keyword">fn</span> <span class="hljs-list">()</span> <span class="hljs-list">(<span class="hljs-keyword">fmt.Println</span> result)</span>)</span>)</span>
 
-<span class="hljs-comment">;; function definition can also use the usual scheme shorthand</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> <span class="hljs-list">(<span class="hljs-keyword">identity-string</span> <span class="hljs-list">[<span class="hljs-keyword">x</span> : string]) x)
+<span class="hljs-comment">;; function definition can also use the function shorthand (like Scheme)</span>
+<span class="hljs-list">(<span class="hljs-keyword">def</span> <span class="hljs-list">(<span class="hljs-keyword">identity-string</span> x)</span> x)</span>
 
 <span class="hljs-comment">;; value definition</span>
-<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">define</span></span> result <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> <span class="hljs-list">(<span class="hljs-keyword">identity-string</span> <span class="hljs-string">&quot;Hello&quot;</span>)</span> <span class="hljs-string">&quot;, world!&quot;</span>)</span>)</span>
-</span></span></span></code></pre>
+<span class="hljs-list">(<span class="hljs-keyword">def</span> result <span class="hljs-list">(<span class="hljs-keyword">++</span> <span class="hljs-list">(<span class="hljs-keyword">identity-string</span> <span class="hljs-string">&quot;Hello&quot;</span>)</span> <span class="hljs-string">&quot;, world!&quot;</span>)</span>)</span>
+</code></pre>
 
                     
                     </section>

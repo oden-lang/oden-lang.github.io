@@ -79,6 +79,6 @@ Oden also supports calling variadic Go functions.
 ;; import the fmt package from Go
 (import fmt)
 
-;; apply the variadoc Go func "fmt.Println" to three strings
+;; apply the variadic Go func "fmt.Println" to three strings
 (def (main) (fmt.Println "foo" "bar" "baz"))
 ```

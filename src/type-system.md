@@ -25,6 +25,25 @@ fmt.Println(s) }` would have the type `(string -> unit)` in Oden.
 
 The literal `unit` has the type `unit`.
 
+## Type Variables
+
+Polymorphic function types can contain of *type variables*. These are like
+placeholders for the types used when applying the polymorphic function. A
+type variable *a* is notated `#a`.
+
+```scheme
+;; type of the identity fn
+(#a -> #a)
+```
+
+When applying the identity function to an int the *instantiated* type
+of identity will be `(int -> int)`. In other words, all occurences of `#a` are
+substituted for `int`.
+
+*Currently all type variables are generated automatically by the type inference
+process. Explicit type signatures and annotations will hopefully be supported
+some day.*
+
 ## Functions
 
 The type of a function $$f\colon A \to B$$ is written `(A -> B)`.
@@ -45,3 +64,21 @@ becomes `(a -> (b -> (c -> a)))`.
 Functions that take no argument, often used to introduce lazyness, are written
 in a similary way. A function that takes no argument and returns an `int` is
 written `(-> int)`.
+
+### Go Functions
+
+When import functions written in Go the type system treats them differently.
+They do not support currying by default but the application of such functions
+look the same, i.e. `(f a1 a2 a3 ...)`.
+
+Oden also supports calling variadic Go functions.
+
+```clojure
+(pkg main)
+
+;; import the fmt package from Go
+(import fmt)
+
+;; apply the variadoc Go func "fmt.Println" to three strings
+(def (main) (fmt.Println "foo" "bar" "baz"))
+```

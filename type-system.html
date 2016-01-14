@@ -54,7 +54,7 @@
     <body>
         
         
-    <div class="book" data-level="5.1" data-chapter-title="Type System" data-filepath="type-system.md" data-basepath="." data-revision="Mon Dec 28 2015 13:50:27 GMT+0100 (CET)">
+    <div class="book" data-level="5.1" data-chapter-title="Type System" data-filepath="type-system.md" data-basepath="." data-revision="Thu Jan 14 2016 08:08:28 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -276,6 +276,19 @@ causes side effects and have no useful return value.</p>
 return value at all. For example, the Go expression <code>func (s string) {
 fmt.Println(s) }</code> would have the type <code>(string -&gt; unit)</code> in Oden.</p>
 <p>The literal <code>unit</code> has the type <code>unit</code>.</p>
+<h2 id="type-variables">Type Variables</h2>
+<p>Polymorphic function types can contain of <em>type variables</em>. These are like
+placeholders for the types used when applying the polymorphic function. A
+type variable <em>a</em> is notated <code>#a</code>.</p>
+<pre><code class="lang-scheme"><span class="hljs-comment">;; type of the identity fn</span>
+<span class="hljs-list">(#a -&gt; #a)</span>
+</code></pre>
+<p>When applying the identity function to an int the <em>instantiated</em> type
+of identity will be <code>(int -&gt; int)</code>. In other words, all occurences of <code>#a</code> are
+substituted for <code>int</code>.</p>
+<p><em>Currently all type variables are generated automatically by the type inference
+process. Explicit type signatures and annotations will hopefully be supported
+some day.</em></p>
 <h2 id="functions">Functions</h2>
 <p>The type of a function <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo separator="true">:</mo><mi>A</mi><mo>&#x2192;</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">f\colon A \to B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mpunct">:</span><span class="mord mathit">A</span><span class="mrel">&#x2192;</span><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> is written <code>(A -&gt; B)</code>.</p>
 <h3 id="currying">Currying</h3>
@@ -290,6 +303,19 @@ becomes <code>(a -&gt; (b -&gt; (c -&gt; a)))</code>.</p>
 <p>Functions that take no argument, often used to introduce lazyness, are written
 in a similary way. A function that takes no argument and returns an <code>int</code> is
 written <code>(-&gt; int)</code>.</p>
+<h3 id="go-functions">Go Functions</h3>
+<p>When import functions written in Go the type system treats them differently.
+They do not support currying by default but the application of such functions
+look the same, i.e. <code>(f a1 a2 a3 ...)</code>.</p>
+<p>Oden also supports calling variadic Go functions.</p>
+<pre><code class="lang-clojure"><span class="hljs-list">(<span class="hljs-keyword">pkg</span> main)</span>
+
+<span class="hljs-comment">;; import the fmt package from Go</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">import</span></span> fmt)</span>
+
+<span class="hljs-comment">;; apply the variadoc Go func &quot;fmt.Println&quot; to three strings</span>
+<span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">def</span></span> <span class="hljs-list">(<span class="hljs-keyword">main</span>)</span> <span class="hljs-list">(<span class="hljs-keyword">fmt.Println</span> <span class="hljs-string">&quot;foo&quot;</span> <span class="hljs-string">&quot;bar&quot;</span> <span class="hljs-string">&quot;baz&quot;</span>)</span>)</span>
+</code></pre>
 
                     
                     </section>

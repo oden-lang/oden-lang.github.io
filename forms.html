@@ -54,7 +54,7 @@
     <body>
         
         
-    <div class="book" data-level="5.2" data-chapter-title="Forms" data-filepath="forms.md" data-basepath="." data-revision="Mon Dec 28 2015 13:50:27 GMT+0100 (CET)">
+    <div class="book" data-level="5.2" data-chapter-title="Forms" data-filepath="forms.md" data-basepath="." data-revision="Thu Jan 14 2016 08:08:28 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -261,11 +261,11 @@
 describes those forms and how you can compose programs with them.</p>
 <h2 id="lists">Lists</h2>
 <p>Drawing inspiration from LISPs, Oden is built on lists. Lists are used for
-special forms and function application. A list can be written <code>(x y z ...)</code> or
-<code>[x y z ...]</code>, they are the same.</p>
+special forms and function application. A list is written <code>(x y z ...)</code> where
+<code>x</code>, <code>y</code>, <code>z</code> and so on are elements in the list.</p>
 <p><em>Note that there is no support for lists in runtime yet.</em></p>
 <h2 id="number-literals">Number Literals</h2>
-<p>The only supported number literal is that of the <code>int</code> type.</p>
+<p>The only supported number literal right now is that of the <code>int</code> type.</p>
 <pre><code class="lang-scheme"><span class="hljs-number">123</span>
 <span class="hljs-number">-588</span>
 </code></pre>
@@ -293,9 +293,10 @@ the infix operators of Go are called as regular functions in Oden.</p>
 <span class="hljs-list">(<span class="hljs-keyword">++</span> <span class="hljs-string">&quot;Foo&quot;</span> <span class="hljs-string">&quot;Bar&quot;</span>)</span>
 <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">and</span></span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">not</span></span> false)</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">or</span></span> true <span class="hljs-list">(<span class="hljs-keyword">==</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>)</span>)</span>)</span>
 </code></pre>
-<p><em>Currently it is not possible to use these functions as first-class
+<p><em>Currently it is not possible to use these operator functions as first-class
 values, passing them to functions or using them in a let,
-e.g. <code>(map + numbers)</code>.</em></p>
+e.g. <code>(map + numbers)</code>. One could however wrap them in a standard function and
+pass that to a higher-order function.</em></p>
 <h2 id="boolean-logic">Boolean Logic</h2>
 <p>Boolean logic functions <code>not</code>, <code>and</code> and <code>or</code> correspond to the Go operators
 <code>!</code>, <code>&amp;&amp;</code> and <code>||</code> respectively, but are written with prefix notation as all
@@ -307,9 +308,11 @@ more arguments and a single expression as the body.</p>
 </code></pre>
 <h3 id="defining-functions">Defining Functions</h3>
 <p>When defining a function, a shorthand can be used.</p>
-<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">def</span> <span class="hljs-list">(<span class="hljs-keyword">identity</span> x)</span> x)</span> <span class="hljs-comment">;; same as (def (fn (x) x))</span>
+<pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">def</span> <span class="hljs-list">(<span class="hljs-keyword">identity</span> x)</span> x)</span>
+<span class="hljs-comment">;; is the same as:</span>
+<span class="hljs-list">(<span class="hljs-keyword">def</span> identity <span class="hljs-list">(<span class="hljs-keyword">fn</span> <span class="hljs-list">(<span class="hljs-keyword">x</span>)</span> x)</span>)</span>
 </code></pre>
-<p>Note that functions at the top-level can be polymorphic.</p>
+<p>Note that Oden functions can be polymorphic.</p>
 <h3 id="recursion">Recursion</h3>
 <p>Defined functions can call themselves recursively.</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword">def</span> <span class="hljs-list">(<span class="hljs-keyword">factorial</span> n)</span>
@@ -318,7 +321,7 @@ more arguments and a single expression as the body.</p>
       <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">*</span></span> n <span class="hljs-list">(<span class="hljs-keyword">factorial</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">-</span></span> n <span class="hljs-number">1</span>)</span>)</span>)</span>)</span>)</span>
 </code></pre>
 <h2 id="control-flow">Control Flow</h2>
-<p>The <code>if</code> expression has the type <code>(bool -&gt; (a -&gt; (a -&gt; a)))</code>.</p>
+<p>The <code>if</code> expression has the type <code>(bool -&gt; (#a -&gt; (#a -&gt; #a)))</code>.</p>
 <pre><code class="lang-scheme"><span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">if</span></span> <span class="hljs-list">(<span class="hljs-keyword">==</span> <span class="hljs-list">(<span class="hljs-keyword"><span class="hljs-built_in">+</span></span> <span class="hljs-number">10</span> <span class="hljs-number">20</span>)</span> <span class="hljs-number">30</span>)</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span>)</span>
 </code></pre>
 <h2 id="let-binding">Let Binding</h2>

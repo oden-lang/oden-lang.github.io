@@ -12,9 +12,8 @@ These are the primary goals and tradeoffs as well as non-goals for the
 first iterations of Oden. To be extra clear, *this is currently an
 experimental language and it might change drastically*.
 
-* A LISP-like language **inspired by Scheme and Clojure** compiling to
-  Go. Not perhaps a "real LISP", at least not until macros are
-  implemented.
+* A language **inspired by Haskell, Scheme and Clojure** compiling to
+  Go. Not perhaps a "real" LISP.
 * Oden should feature a safe but versatile type system - more
   flexible than the one in Go and at least as safe.
 * Generics.

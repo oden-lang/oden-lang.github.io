@@ -6,14 +6,14 @@ describes those forms and how you can compose programs with them.
 ## Lists
 
 Drawing inspiration from LISPs, Oden is built on lists. Lists are used for
-special forms and function application. A list can be written `(x y z ...)` or
-`[x y z ...]`, they are the same.
+special forms and function application. A list is written `(x y z ...)` where
+`x`, `y`, `z` and so on are elements in the list.
 
 *Note that there is no support for lists in runtime yet.*
 
 ## Number Literals
 
-The only supported number literal is that of the `int` type.
+The only supported number literal right now is that of the `int` type.
 
 ```scheme
 123
@@ -55,9 +55,10 @@ the infix operators of Go are called as regular functions in Oden.
 (and (not false) (or true (== 1 2)))
 ```
 
-*Currently it is not possible to use these functions as first-class
+*Currently it is not possible to use these operator functions as first-class
 values, passing them to functions or using them in a let,
-e.g. `(map + numbers)`.*
+e.g. `(map + numbers)`. One could however wrap them in a standard function and
+pass that to a higher-order function.*
 
 ## Boolean Logic
 
@@ -79,10 +80,12 @@ more arguments and a single expression as the body.
 When defining a function, a shorthand can be used.
 
 ```scheme
-(def (identity x) x) ;; same as (def (fn (x) x))
+(def (identity x) x)
+;; is the same as:
+(def identity (fn (x) x))
 ```
 
-Note that functions at the top-level can be polymorphic.
+Note that Oden functions can be polymorphic.
 
 ### Recursion
 
@@ -97,7 +100,7 @@ Defined functions can call themselves recursively.
 
 ## Control Flow
 
-The `if` expression has the type `(bool -> (a -> (a -> a)))`.
+The `if` expression has the type `(bool -> (#a -> (#a -> #a)))`.
 
 ```scheme
 (if (== (+ 10 20) 30) 1 0)

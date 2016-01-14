@@ -35,3 +35,8 @@ $ make deps
 $ make docs
 $ open index.html
 ```
+
+## Playground
+
+If you just want to try writing some Oden, check out [the Oden Playground](
+http://playground.oden-lang.org/).

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header-start.html %}
+
+    <div class="page-content">
+      <div class="wrapper start">
+
+        <p class="description">
+        {{ site.description }}
+        </p>
+
+        <div class="features">
+          <h2>Features</h2>
+          <ul>
+            <li>Static type system with generics</li>
+            <li>Unambigous S-expression syntax</li>
+            <li>Expressions instead of statements</li>
+            <li>Simple interoperability with Go</li>
+            <li>
+              From Go:
+              <ul>
+                <li>Static linking</li>
+                <li>Cross-compilation</li>
+                <li>Goroutines</li>
+                <li>Channels</li>
+                <li>Library Ecosystem</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+{% highlight clojure %}
+(pkg fibonacci)
+
+(def (fib n)
+  (if (== n 1)
+    0
+    (if (== n 2)
+      1
+      (+ (fib (- n 1))
+         (fib (- n 2))))))
+{% endhighlight %}
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

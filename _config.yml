@@ -1,0 +1,25 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: The Oden Programming Language
+email: odenlanguage@gmail.com
+description: >
+  Oden is an experimental, statically typed, functional programming language,
+  built on top of Go.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://oden-lang.org" # the base hostname & protocol for your site
+twitter_username: odenlang
+github_username:  oden-lang
+nav_pages:
+  - /about/
+  - /user-guide/
+  - /blog/
+  - /blog/index.html
+
+# Build settings
+markdown: kramdown

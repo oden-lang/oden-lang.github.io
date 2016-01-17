@@ -1,0 +1,284 @@
+/**
+ * Site header
+ */
+.site-header {
+  border-bottom: 1px solid $grey-color-light;
+  min-height: 56px;
+
+  // Positioning context for the mobile navigation icon
+  position: relative;
+}
+
+$header-logo-size: 32px;
+
+.site-title {
+  padding-left: $header-logo-size + 8px;
+  background-image: url('/logo-no-text.svg');
+  background-size: $header-logo-size $header-logo-size;
+  background-repeat: no-repeat;
+  background-position: 0px center;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 56px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+
+  &,
+  &:visited,
+  & a,
+  & a:visited {
+    color: $grey-color-dark;
+  }
+}
+
+.site-nav {
+  float: right;
+  line-height: 56px;
+
+  .menu-icon {
+    display: none;
+  }
+
+  .page-link {
+    color: $text-color;
+    line-height: $base-line-height;
+
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @include media-query($on-palm) {
+    position: absolute;
+    top: 9px;
+    right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $grey-color-light;
+    border-radius: 5px;
+    text-align: right;
+
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      padding-top: 10px;
+      text-align: center;
+
+      > svg {
+        width: 18px;
+        height: 15px;
+
+        path {
+          fill: $grey-color-dark;
+        }
+      }
+    }
+
+    .trigger {
+      clear: both;
+      display: none;
+    }
+
+    &:hover .trigger {
+      display: block;
+      padding-bottom: 5px;
+    }
+
+    .page-link {
+      display: block;
+      padding: 5px 10px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+  }
+}
+
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+  border-top: 1px solid $grey-color-light;
+  padding: $spacing-unit 0;
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.social-media-list {
+  flex: 0 0 auto;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.copyright {
+  flex: 1 1 auto;
+  color: $grey-color;
+  font-size: 14px;
+  line-height: 30px;
+  padding: 0 $spacing-unit 0 0;
+}
+
+@include media-query($on-laptop) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+    width:         calc(50% - (#{$spacing-unit} / 2));
+  }
+
+  .footer-col-3 {
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+@include media-query($on-palm) {
+  .footer-col {
+    float: none;
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width:         calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+
+
+/**
+ * Page content
+ */
+.page-content {
+  padding: $spacing-unit 0;
+}
+
+.page-heading {
+  font-size: 20px;
+}
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: $spacing-unit;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  .post-excerpt {
+    font-size: $small-font-size;
+    color: $grey-color;
+  }
+}
+
+.post-meta {
+  font-size: $small-font-size;
+  font-weight: bold;
+  color: $grey-color;
+}
+
+.post-link {
+  display: block;
+  font-size: 24px;
+}
+
+
+
+/**
+ * Posts
+ */
+.post-header {
+  margin-bottom: $spacing-unit;
+
+  .post-excerpt {
+    font-size: $base-font-size * 1.25;
+    color: $grey-color;
+    font-style: italic;
+  }
+}
+
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+
+  @include media-query($on-laptop) {
+    font-size: 36px;
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+
+  h2 {
+    font-size: 32px;
+
+    @include media-query($on-laptop) {
+      font-size: 28px;
+    }
+  }
+
+  h3 {
+    font-size: 20px;
+
+    @include media-query($on-laptop) {
+      font-size: 22px;
+    }
+  }
+
+  h4 {
+    font-size: 20px;
+
+    @include media-query($on-laptop) {
+      font-size: 18px;
+    }
+  }
+}
+
+
+/**
+ * Start Page
+ */
+.start.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  .description {
+    flex: 0 0 100%;
+    font-size: 200%;
+    margin: 2em 0 3em;
+    text-align: center;
+    font-weight: 300;
+  }
+
+  .features {
+    flex: 0 0 50%;
+     h2 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  & > figure {
+    flex: 0 0 50%;
+    pre {
+      background: none;
+    }
+    code {
+      background: none;
+      font-size: 20px;
+    }
+  }
+}

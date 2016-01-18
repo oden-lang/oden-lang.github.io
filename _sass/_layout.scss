@@ -7,11 +7,23 @@
 
   // Positioning context for the mobile navigation icon
   position: relative;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+  }
+  @include media-query($on-palm) {
+    .wrapper {
+      padding: 10px 15px;
+    }
+  }
 }
 
 $header-logo-size: 32px;
 
 .site-title {
+  flex: 1 1 auto;
   padding-left: $header-logo-size + 8px;
   background-image: url('/logo-no-text.svg');
   background-size: $header-logo-size $header-logo-size;
@@ -19,10 +31,8 @@ $header-logo-size: 32px;
   background-position: 0px center;
   font-size: 22px;
   font-weight: 300;
-  line-height: 56px;
   letter-spacing: -1px;
   margin-bottom: 0;
-  float: left;
 
   &,
   &:visited,
@@ -34,13 +44,13 @@ $header-logo-size: 32px;
 
 @include media-query($on-palm) {
   .site-title {
-    font-size: 19px;
+    font-size: 18px;
+    text-align: center;
   }
 }
 
 .site-nav {
-  float: right;
-  line-height: 56px;
+  flex: 0 0 auto;
 
   .menu-icon {
     display: none;
@@ -57,9 +67,7 @@ $header-logo-size: 32px;
   }
 
   @include media-query($on-palm) {
-    position: absolute;
-    top: 9px;
-    right: $spacing-unit / 2;
+    position: relative;
     background-color: $background-color;
     border: 1px solid $grey-color-light;
     border-radius: 5px;
@@ -75,8 +83,10 @@ $header-logo-size: 32px;
       text-align: center;
 
       > svg {
+        position: relative;
         width: 18px;
         height: 15px;
+        z-index: 2;
 
         path {
           fill: $grey-color-dark;
@@ -85,8 +95,15 @@ $header-logo-size: 32px;
     }
 
     .trigger {
+      position: absolute;
+      top: -1px;
+      right: -1px;
       clear: both;
       display: none;
+      background-color: $background-color;
+      border: 1px solid $grey-color-light;
+      border-radius: 5px;
+      padding-top: 36px;
     }
 
     &:hover .trigger {
@@ -97,6 +114,7 @@ $header-logo-size: 32px;
     .page-link {
       display: block;
       padding: 5px 10px;
+      white-space: nowrap;
 
       &:not(:last-child) {
         margin-right: 0;

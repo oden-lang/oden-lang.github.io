@@ -135,8 +135,8 @@ I'm not sure why, but the state of miniKanren seems to be kind of in flux.
 There are different implementations with more or less the same name, with
 different sets of functions and often no documentation at all. It almost seems
 as if everyone has their own custom version lying around on their drive,
-copy-pasted into the project when needed. I'm not sure what's going on but
-it's confusing to me.
+copy-pasted into projects when needed. I'm not sure what's going on but it's
+confusing to me.
 
 ### Racket REPL and Emacs
 

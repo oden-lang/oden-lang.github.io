@@ -314,9 +314,11 @@ $header-logo-size: 32px;
   > figure {
     flex: 0 0 50%;
     background-color: transparent;
+    border: none;
 
     pre {
       background-color: transparent;
+      border: none;
     }
 
     code {

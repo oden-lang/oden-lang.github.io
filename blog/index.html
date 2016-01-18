@@ -16,8 +16,13 @@ title: Blog
         {% if post.excerpt %}
         <p class="post-excerpt">
           {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
-          <a class="post-read-more-link" href="{{ post.url | prepend: site.baseurl }}">Read More &raquo;</a>
         </p>
+        {% endif %}
+
+        {% if post.comments %}
+        <nav class="post-actions">
+          <a class="post-comments-link" href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a>
+        </nav>
         {% endif %}
       </li>
     {% endfor %}
@@ -25,4 +30,5 @@ title: Blog
 
   <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>.</p>
 
+  <script id="dsq-count-scr" src="//oden-lang.disqus.com/count.js" async></script>
 </div>

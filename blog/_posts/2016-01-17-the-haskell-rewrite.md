@@ -4,6 +4,7 @@ title:  The Haskell Rewrite
 date:   2016-01-18 06:00:00 +0100
 author: Oskar Wickström
 categories: compiler
+comments: true
 excerpt: >
   During December 2015 the Oden compiler was rewritten in Haskell. This post
   explains the motivation for moving away from Racket.

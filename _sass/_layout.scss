@@ -184,6 +184,7 @@ $header-logo-size: 32px;
   .post-excerpt {
     font-size: $small-font-size;
     color: $grey-color;
+    margin-bottom: 0;
   }
 }
 
@@ -198,11 +199,16 @@ $header-logo-size: 32px;
   font-size: 24px;
 }
 
-.post-read-more-link {
-  display: block;
-  text-align: right;
-}
+.post-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: $small-font-size;
 
+  a {
+    margin-left: $spacing-unit;
+  }
+}
 
 /**
  * Posts

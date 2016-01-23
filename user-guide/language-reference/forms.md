@@ -78,21 +78,33 @@ more arguments and a single expression as the body.
 (fn (x) (+ x 1))
 {% endhighlight %}
 
-### Defining Functions
-
-When defining a function, a shorthand can be used.
+Functions can be defined at the top level just like values are defined, using
+`def` and function expressions. However, as defining functions is a common
+task, a shorthand can be used.
 
 {% highlight clojure %}
-(def (identity x) x)
-;; is the same as:
 (def identity (fn (x) x))
+;; can be written using the shorthand:
+(def (identity x) x)
 {% endhighlight %}
 
-Note that Oden functions can be polymorphic.
+It is recommended to add an explicit type signature to definitions. Type
+signatures must be written before the definition. A type signature without a
+corresponding definition causes and error.
+
+{% highlight clojure %}
+;; a type signature for `identity`, specifying the type to be (#a -> #a)
+(: identity (#a -> #a))
+(def (identity x) x)
+
+(: another-function (#b -> #a))
+;; no def here, so we will get an error message when compiling
+{% endhighlight %}
 
 ### Recursion
 
-Defined functions can call themselves recursively.
+Defined functions can call themselves recursively. There is currently no
+*tail call optimization* being done in Oden, so be careful with these.
 
 {% highlight clojure %}
 (def (factorial n)

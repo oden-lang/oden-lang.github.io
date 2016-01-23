@@ -17,7 +17,7 @@
         <div class="features">
           <h2>Features</h2>
           <ul>
-            <li>Static type system with generics</li>
+            <li>Static type system with support for polymorphism</li>
             <li>Unambigous S-expression syntax</li>
             <li>Expressions instead of statements</li>
             <li>Simple interoperability with Go</li>
@@ -33,16 +33,26 @@
             </li>
           </ul>
         </div>
-{% highlight clojure %}
-(pkg fibonacci)
+{% highlight scheme %}
+(pkg main)
+
+(import fmt)
+
+(: twice (#a -> #a))
+(def (twice f x) (f (f x)))
+
+(def (decr n) (- n 1))
 
 (def (fib n)
   (if (== n 1)
     0
     (if (== n 2)
       1
-      (+ (fib (- n 1))
-         (fib (- n 2))))))
+      (+ (fib (decr n))
+         (fib (twice decr n))))))
+
+(def (main)
+  (fmt.Println "Result:" (fib 10)))
 {% endhighlight %}
       </div>
     </div>

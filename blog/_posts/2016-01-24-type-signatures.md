@@ -16,7 +16,7 @@ functions and type signatures in the [Language
 Reference](/user-guide/language-reference/forms.html#functions).
 
 {% highlight clojure %}
-(: identity (int -> int))
+(: incr (int -> int))
 (def (incr n) (+ n 1))
 
 (: twice ((#a -> #a) -> (#a -> #a)))

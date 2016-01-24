@@ -16,19 +16,22 @@ In Oden the following rules apply:
 
 ## Example
 
-{% highlight clojure %}
+{% highlight scheme %}
 ;; package declaration
 (pkg main)
 
 ;; import declaration
 (import fmt)
 
-;; main function definition, must have type (-> unit)
-(def main (fn () (fmt.Println result)))
-
-;; function definition can also use the function shorthand (like Scheme)
-(def (identity-string x) x)
-
 ;; value definition
 (def result (++ (identity-string "Hello") ", world!"))
+
+;; function definition can also use the function shorthand (like Scheme)
+;; and type signatures
+(: identity-string (string -> string))
+(def (identity-string x) x)
+
+;; main function definition, must have type (-> unit)
+(def (main) (fmt.Println result))
+
 {% endhighlight %}

@@ -90,11 +90,15 @@ task, a shorthand can be used.
 
 It is recommended to add an explicit type signature to definitions. Type
 signatures must be written before the definition. A type signature without a
-corresponding definition causes and error.
+corresponding definition causes an error.
 
 {% highlight clojure %}
 ;; a type signature for `identity`, specifying the type to be (#a -> #a)
 (: identity (#a -> #a))
+(def (identity x) x)
+
+;; the same thing but also declaring the type variables using forall
+(: identity (forall (#a) (#a -> #a)))
 (def (identity x) x)
 
 (: another-function (#b -> #a))

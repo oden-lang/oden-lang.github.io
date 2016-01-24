@@ -9,7 +9,11 @@ comments: true
 
 In the spirit of making Oden code more understandable and to help the developer
 writing the code, support for type signatures has been added in [Oden
-0.2.1-RC1](#). They are optional but recommended to use.
+0.2.1-RC1](https://github.com/oden-lang/oden/releases/tag/0.2.1-RC1).
+
+Type signatures are optional but recommended to use. Read more about defining
+functions and type signatures in the [Language
+Reference](http://oden-lang.org/user-guide/language-reference/forms.html#functions).
 
 {% highlight clojure %}
 (: identity (int -> int))

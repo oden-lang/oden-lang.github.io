@@ -43,10 +43,6 @@ When applying the identity function to an int the *instantiated* type
 of identity will be `(int -> int)`. In other words, all occurences of `#a` are
 substituted for `int`.
 
-*Currently all type variables are generated automatically by the type inference
-process. Explicit type signatures and annotations will hopefully be supported
-some day.*
-
 ## Functions
 
 The type of a function $$f\colon A \to B$$ is written `(A -> B)`.

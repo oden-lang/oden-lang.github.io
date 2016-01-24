@@ -22,4 +22,6 @@ writing the code, support for type signatures has been added in [Oden
 (def two (twice incr 0))
 {% endhighlight %}
 
-If you find any issues please [report them on GitHub](https://github.com/oden-lang/oden/issues).
+Please try the feature out [in the Oden
+Playground](http://playground.oden-lang.org/) and don't hesitate to [report
+issues on GitHub](https://github.com/oden-lang/oden/issues).

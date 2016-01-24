@@ -13,7 +13,7 @@ writing the code, support for type signatures has been added in [Oden
 
 Type signatures are optional but recommended to use. Read more about defining
 functions and type signatures in the [Language
-Reference](http://oden-lang.org/user-guide/language-reference/forms.html#functions).
+Reference](/user-guide/language-reference/forms.html#functions).
 
 {% highlight clojure %}
 (: identity (int -> int))

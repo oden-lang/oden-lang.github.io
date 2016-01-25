@@ -38,7 +38,7 @@
 
 (import fmt)
 
-(: twice (#a -> #a))
+(: twice ((#a -> #a) -> #a -> #a))
 (def (twice f x) (f (f x)))
 
 (def (decr n) (- n 1))

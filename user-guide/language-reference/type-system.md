@@ -50,9 +50,9 @@ The type of a function $$f\colon A \to B$$ is written `(A -> B)`.
 ### Currying
 
 Oden supports [*currying*](https://en.wikipedia.org/wiki/Currying)
-by default. The type of a function $$f\colon X \to (Y \to Z)$$ is
-written `(X -> (Y -> Z))` which reflects that it is actually a
-curried function.
+by default. The type of a function $$f\colon X \to (Y \to Z)$$ can be
+written `(X -> (Y -> Z))`. To make it more readable you can also write the same
+type as `(X -> Y -> Z)`.
 
 {% highlight clojure %}
 ;; oden lets you write
@@ -60,7 +60,7 @@ curried function.
 ;; but that gets translated to
 (fn (x) (fn (y) (fn (z) x)))
 ;; and the inferred type becomes
-(a -> (b -> (c -> a)))
+(a -> b -> c -> a)
 {% endhighlight %}
 
 ### No-argument Functions

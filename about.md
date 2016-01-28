@@ -51,3 +51,18 @@ The first versions of Oden should **not** focus on:
   any existing LISP, or any other language for that matter.
 * A Haskell-clone.
 * Macros. Might be considered in the future, but not a focus for now.
+
+## Contributing
+
+We are committed to providing a welcoming and inspiring community for all and
+expect our [Code of Conduct](/code-of-conduct/) to be
+honored. Anyone who violates this code of conduct may be banned from the
+community.
+
+If you find this project interesting and want to help work on it, you
+can submit bug reports, suggestions and change requests at
+[the GitHub issues page](https://github.com/oden-lang/oden/issues).
+
+Please start by posting an issue even if you have a pull request ready,
+so we can begin with a discussion.
+

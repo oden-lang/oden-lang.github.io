@@ -10,7 +10,7 @@ title: The Oden Programming Language
 email: odenlanguage@gmail.com
 description: >
   Oden is an experimental, statically typed, functional programming language,
-  built on top of Go.
+  built for the Go ecosystem.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://oden-lang.org" # the base hostname & protocol for your site
 twitter_username: odenlang

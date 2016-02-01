@@ -296,6 +296,16 @@ $header-logo-size: 32px;
     font-weight: 300;
   }
 
+  code {
+    font-size: 15px;
+  }
+
+  @include media-query($on-laptop) {
+    code {
+      font-size: 13px;
+    }
+  }
+
   @include media-query($on-palm) {
     .description {
       font-size: 150%;
@@ -313,18 +323,6 @@ $header-logo-size: 32px;
   > .highlight,
   > figure {
     flex: 0 0 50%;
-    background-color: transparent;
-    border: none;
-
-    pre {
-      background-color: transparent;
-      border: none;
-    }
-
-    code {
-      background-color: transparent;
-      font-size: 15px;
-    }
   }
 }
 

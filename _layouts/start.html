@@ -33,26 +33,21 @@
             </li>
           </ul>
         </div>
-{% highlight scheme %}
-(pkg main)
+{% highlight go %}
+package main
 
-(import fmt)
+import fmt
 
-(: twice ((#a -> #a) -> #a -> #a))
-(def (twice f x) (f (f x)))
+fact :: int -> int
+fact n -> if n <= 1 then 1 else {
+  n * fact(n - 1)
+}
 
-(def (decr n) (- n 1))
+twice :: (#a -> #a) -> #a -> #a
+twice f x -> f(f(x))
 
-(def (fib n)
-  (if (== n 1)
-    0
-    (if (== n 2)
-      1
-      (+ (fib (decr n))
-         (fib (twice decr n))))))
-
-(def (main)
-  (fmt.Println "Result:" (fib 10)))
+main :: -> unit
+main -> fmt.Println(twice(fact, 3))
 {% endhighlight %}
       </div>
     </div>

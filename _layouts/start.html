@@ -38,16 +38,16 @@ package main
 
 import fmt
 
-fact :: int -> int
-fact n -> if n <= 1 then 1 else {
-  n * fact(n - 1)
-}
+square :: int -> int
+square n -> n * n
 
 twice :: (#a -> #a) -> #a -> #a
 twice f x -> f(f(x))
 
-main :: -> unit
-main -> fmt.Println(twice(fact, 3))
+main :: -> {}
+main -> let n = twice(square, 2) in {
+  fmt.Println("2\x2074 =", n)
+}
 {% endhighlight %}
       </div>
     </div>

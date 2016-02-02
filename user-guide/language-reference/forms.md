@@ -136,8 +136,7 @@ Shadowing names are not allowed and will result in a compile error.
 
 {% highlight go %}
 let x = 1
-    // this is not ok a x is already defined:
-    x = x * 2
+    x = x * 2 // not ok as x is already defined
     in x * 2
 {% endhighlight %}
 

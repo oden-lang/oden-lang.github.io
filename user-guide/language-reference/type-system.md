@@ -19,14 +19,14 @@ Just like in Go, there are some built in types:
 
 ### Unit
 
-*Unit*, written `{}`, is a built-in type representing *no value*. It is used
-for functions that causes side effects and have no useful return value.
+*Unit*, written `()`, is a built-in type that has only one value. It is mostly
+used for functions that causes side effects and have no useful return value.
 
 Unit is also used for interopability with functions in Go that has no
 return value at all. For example, the Go expression `func (s string) {
-fmt.Println(s) }` would have the type `string -> {}` in Oden.
+fmt.Println(s) }` would have the type `string -> ()` in Oden.
 
-The literal `{}` has the type `{}`.
+The literal `()` has the type `()`.
 
 ## Type Variables
 

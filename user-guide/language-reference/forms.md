@@ -174,5 +174,4 @@ x = {
 }
 {% endhighlight %}
 
-If a block is empty, the type of that block expression is `{}`. In other words,
-the literal `{}` for the type `{}` is actually an empty block.
+If a block is empty, the type of that block expression is `()`.

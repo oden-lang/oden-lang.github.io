@@ -170,12 +170,12 @@ x = {
 }
 {% endhighlight %}
 
-Disregarding the value of an expression, of any type other than `()`, causes an
+Discarding the value of an expression, of any type other than `()`, causes an
 error.
 
 {% highlight go %}
 x = {
-  ()       // ok to disregard as it's of type ()
+  ()       // ok to discard as it's of type ()
   9 * 1000 // causes an error
   fmt.Println("Done wasting CPU.")
 }

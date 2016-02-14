@@ -6,14 +6,6 @@ title: Forms
 Oden is very simple and supports only a small set of forms. This document
 describes those forms and how you can compose programs with them.
 
-## Lists
-
-Drawing inspiration from Lisps, Oden is built on lists. Lists are used for
-special forms and function application. A list is written `(x y z ...)` where
-`x`, `y`, `z` and so on are elements in the list.
-
-*Note that there is no support for lists in runtime yet.*
-
 ## Number Literals
 
 The only supported number literal right now is that of the `int` type.
@@ -42,7 +34,11 @@ false
 
 ## Operators
 
+There are unary and binary operators in Oden.
+
 {% highlight go %}
++y
+-(1 - 2)
 1 + 2
 1 - 2
 2 * 2
@@ -52,13 +48,13 @@ false
 1 == 2
 1 != 2
 "Foo" ++ "Bar"
-not(false) && (true || (1 == 2))
+!x && (true || (1 == 2))
 {% endhighlight %}
 
-*Currently it is not possible to use these operator functions as first-class
-values, passing them to functions or using them in a let,
-e.g. `map + numbers`. One could however wrap them in a standard function and
-pass that to a higher-order function.*
+*Currently it is not possible to use these operators as first-class values,
+passing them to functions or using them in a let, e.g. `map + numbers`. One
+could however wrap them in a standard function and pass that to a
+higher-order function.*
 
 ## Functions
 
@@ -174,4 +170,43 @@ x = {
 }
 {% endhighlight %}
 
-If a block is empty, the type of that block expression is `()`.
+Disregarding the value of an expression, of any type other than `()`, causes an
+error.
+
+{% highlight go %}
+x = {
+  ()       // ok to disregard as it's of type ()
+  9 * 1000 // causes an error
+  fmt.Println("Done wasting CPU.")
+}
+{% endhighlight %}
+
+Blocks may not be empty.
+
+## Slices
+
+A slice is a collection of values typed only by the element type, not the
+length of the collection.
+
+{% highlight go %}
+names = []{"Sarah", "Joe", "Maxime"}
+
+numbers :: []{int}
+numbers = []{1, 2, 3, 4, 5}
+{% endhighlight %}
+
+## Tuples
+
+A tuple is an immutable finite ordered collection of values. Unlike slices, the
+values in a tuple can have different types.
+
+{% highlight go %}
+// lets first create some tuples representing people by storing the name and
+// age
+jessica = ("Jessica", 31)
+frank = ("Frank", 26)
+
+// as these tuples have the same type (string, int) we can store them in a
+// slice that get's the type []{(string, int)}
+people = []{jessica, frank, ("Maxime", 25)}
+{% endhighlight %}

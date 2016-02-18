@@ -198,10 +198,10 @@ numbers = []{1, 2, 3, 4, 5}
 Slice elements can be accessed with square brackets:
 
 {% highlight go %}
-    greeting = "Hello, " ++ names[0]
+greeting = "Hello, " ++ names[0]
 
-    twoLevelSlice = []{[]{1, 2, 3}, []{4, 5, 6}}
-    twoLevelSlice[1][2] == 6
+twoLevelSlice = []{[]{1, 2, 3}, []{4, 5, 6}}
+twoLevelSlice[1][2] == 6
 {% endhighlight %}
 
 

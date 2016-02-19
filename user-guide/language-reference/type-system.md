@@ -8,9 +8,9 @@ type system should help ensure the correctness of your programs
 without getting in the way. Oden builds on an extended typed lambda
 calculus and performs type inference on your code.
 
-## Built-in Types
+## Basic Types
 
-Just like in Go, there are some built in types:
+The basic types are built-in special types:
 
 * `boolean`
 * `int`

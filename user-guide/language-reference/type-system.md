@@ -15,7 +15,7 @@ Just like in Go, there are some built in types:
 * `boolean`
 * `int`
 * `string`
-* `unit`
+* `()`
 
 ### Unit
 

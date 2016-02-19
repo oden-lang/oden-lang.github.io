@@ -3,22 +3,21 @@ layout: page
 title: Compiling
 ---
 
-In Oden the compiler is called `odenc`. It compiles Oden source
-files to single file packages in Go. The following is a simple
-example of how compiling with `odenc` works.
+In Oden the compiler is bundled in the `oden` command line tool inside the
+`build` subcommand. It compiles Oden source files to single file packages in
+Go. The following is a small example of how compiling with `oden build` works.
 
 
 {% highlight bash %}
-$ mkdir -p src/hello-world/
-$ cat << EOF >> src/hello-world/main.oden
-(pkg hello-world/main)
-(import fmt)
+$ mkdir -p src/hello/
+$ cat << EOF >> src/hello/main.oden
+package hello/main
+import fmt
 
-(def (main)
-  (fmt.Println "Hello, world!"))
+main -> fmt.Println("Hello, world!")
 EOF
-$ odenc --out-path=./out
-$ GOPATH=$PWD/out go build -o hello-world hello-world/main
-$ ./hello_world
+$ oden build --out-path=./out
+$ GOPATH=$PWD/out go build -o hello hello/main
+$ ./hello
 Hello, world!
 {% endhighlight %}

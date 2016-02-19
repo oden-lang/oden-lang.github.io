@@ -199,7 +199,7 @@ Slice elements can be accessed with square brackets:
 greeting = "Hello, " ++ names[0]
 
 twoLevelSlice = []{[]{1, 2, 3}, []{4, 5, 6}}
-twoLevelSlice[1][2] == 6
+isSix = twoLevelSlice[1][2] == 6
 {% endhighlight %}
 
 

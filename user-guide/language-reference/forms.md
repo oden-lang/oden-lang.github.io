@@ -159,9 +159,9 @@ let makeNum = fn -> 3 in makeNum() * makeNum()
 
 ## Blocks
 
-A block is an expression containing *zero or more* expressions. A block
-expression evaluates to the last expression in the block. Blocks can be used to
-perform side-effects.
+A block is an expression containing *one or more* expressions - it cannot be
+empty. A block expression evaluates to the last expression in the block. Blocks
+can be used to perform side-effects.
 
 {% highlight go %}
 x = {
@@ -180,8 +180,6 @@ x = {
   fmt.Println("Done wasting CPU.")
 }
 {% endhighlight %}
-
-Blocks may not be empty.
 
 ## Slices
 

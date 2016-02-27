@@ -47,9 +47,9 @@ The first versions of Oden should **not** focus on:
 
 ### Non-goals
 
-* A "Go backend" for Scheme or Clojure. There's no compatibility with
-  any existing LISP, or any other language for that matter.
-* A Haskell-clone.
+* A "Go backend" for <insert language here>. Oden is a language on its own.
+* A Haskell-clone. Great ideas from Haskell and other languages do influence
+  Oden but it's really not a Haskell clone.
 * Macros. Might be considered in the future, but not a focus for now.
 
 ## Contributing

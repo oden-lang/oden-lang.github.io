@@ -47,7 +47,7 @@ The first versions of Oden should **not** focus on:
 
 ### Non-goals
 
-* A "Go backend" for <insert language here>. Oden is a language on its own.
+* A "Go backend" for another existing language. Oden is a language on its own.
 * A Haskell-clone. Great ideas from Haskell and other languages do influence
   Oden but it's really not a Haskell clone.
 * Macros. Might be considered in the future, but not a focus for now.

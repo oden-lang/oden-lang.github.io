@@ -58,21 +58,22 @@ higher-order function.*
 
 ## Functions
 
-A function is created using a `fn` expression. It supports zero or
-more arguments and a single expression as the body.
+A function is created using an parameter list followed by an arrow. The
+parameter list can contain zero or more arguments and a single expression as
+the body.
 
 {% highlight go %}
-fn x -> x + 1
+(x) -> x + 1
 {% endhighlight %}
 
 Functions can be defined at the top level just like values are defined, using
-`def` and function expressions. However, as defining functions is a common
+names and function expressions. However, as defining functions is such a common
 task, a shorthand can be used.
 
 {% highlight go %}
-identity = fn x -> x
+identity = (x) -> x
 // can be written using the shorthand:
-identity x -> x
+identity(x) = x
 {% endhighlight %}
 
 It is recommended to add an explicit type signature to definitions. Type
@@ -80,25 +81,46 @@ signatures must be written before the definition. A type signature without a
 corresponding definition causes an error.
 
 {% highlight go %}
-// a type signature for `identity`, specifying the type to be (#a -> #a)
+// a type signature for `identity`, specifying the type to be #a -> #a
 identity :: #a -> #a
-identity x -> x
+identity(x) = x
 
 // the same thing but also declaring the type variables using forall
 identity :: forall #a. #a -> #a
-identity x -> x
+identity(x) = x
 
 anotherFunction :: #b -> #a
 // missing definition here, so we will get an error message when compiling
 {% endhighlight %}
 
+## Function Application
+
+Functions are applied using parenthesis and by separating parameters with
+commas.
+
+{% highlight go %}
+f(x, y, z, ...)
+{% endhighlight %}
+
+Here we call our newly created `square` function with the argument `4`.
+
+{% highlight go %}
+let square = (x) -> x * 2 in square(4)
+{% endhighlight %}
+
+Oden also supports functions which take no arguments.
+
+{% highlight go %}
+let makeNum = () -> 3 in makeNum() * makeNum()
+{% endhighlight %}
+
 ### Recursion
 
-Defined functions can call themselves recursively. There is currently no
+Top-level functions can call themselves recursively. There is currently no
 *tail call optimization* being done in Oden, so be careful with these.
 
 {% highlight go %}
-factorial n -> if n < 2 then 1 else n * factorial(n - 1)
+factorial(n) = if n < 2 then 1 else n * factorial(n - 1)
 {% endhighlight %}
 
 ## Control Flow
@@ -134,27 +156,6 @@ Shadowing names are not allowed and will result in a compile error.
 let x = 1
     x = x * 2 // not ok as x is already defined
     in x * 2
-{% endhighlight %}
-
-## Function Application
-
-Functions are applied using parenthesis and by separating parameters with
-commas.
-
-{% highlight go %}
-f(x, y, z, ...)
-{% endhighlight %}
-
-Here we call our newly created `square` function with the argument `4`.
-
-{% highlight go %}
-let square = fn x -> x * 2 in square(4)
-{% endhighlight %}
-
-Oden also supports functions which take no arguments.
-
-{% highlight go %}
-let makeNum = fn -> 3 in makeNum() * makeNum()
 {% endhighlight %}
 
 ## Blocks

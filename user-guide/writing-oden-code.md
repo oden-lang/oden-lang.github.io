@@ -22,14 +22,14 @@ package main
 // import declaration
 import fmt
 
-// function definition can also use the function shorthand
-// and type signatures
-shout :: string -> string
-shout s -> s ++ "!"
-
 // value definition
 result = shout("hello, world")
 
+// function definitions can use the function definition shorthand
+// and type signatures
+shout :: string -> string
+shout(s) = s ++ "!"
+
 // main function definition, must have type: -> unit
-main -> fmt.Println(result)
+main() = fmt.Println(result)
 {% endhighlight %}

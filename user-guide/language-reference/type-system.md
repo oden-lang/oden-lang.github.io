@@ -35,7 +35,7 @@ placeholders for the types used when applying the polymorphic function. A
 type variable *a* is notated `#a`.
 
 {% highlight go %}
-// type of the identity fn
+// type of the identity function
 #a -> #a
 {% endhighlight %}
 
@@ -56,9 +56,9 @@ type as `X -> Y -> Z`.
 
 {% highlight go %}
 // oden lets you write
-fn x y z -> x
+(x, y, z) -> x
 // but that gets translated to
-fn x -> fn y -> fn z -> x
+(x) -> (y) -> (z) -> x
 // and the inferred type becomes
 a -> b -> c -> a
 {% endhighlight %}
@@ -83,7 +83,7 @@ package main
 // import the fmt package from Go
 import fmt
 
-// apply the variadic Go func "fmt.Println" to three strings
+// apply the variadic Go func "Println" to three strings
 main -> fmt.Println("foo", "bar", "baz")
 {% endhighlight %}
 

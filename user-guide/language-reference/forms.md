@@ -66,14 +66,24 @@ the body.
 (x) -> x + 1
 {% endhighlight %}
 
+The body can be a [block](#blocks).
+
+{% highlight go %}
+(x) -> {
+  fmt.Println("Read more about blocks below.")
+  x + 1
+}
+{% endhighlight %}
+
 Functions can be defined at the top level just like values are defined, using
 names and function expressions. However, as defining functions is such a common
-task, a shorthand can be used.
+task, the function definition shorthand can be used.
 
 {% highlight go %}
 identity = (x) -> x
 // can be written using the shorthand:
 identity(x) = x
+// ah, doesn't that read nicely?
 {% endhighlight %}
 
 It is recommended to add an explicit type signature to definitions. Type
@@ -161,14 +171,15 @@ let x = 1
 ## Blocks
 
 A block is an expression containing *one or more* expressions - it cannot be
-empty. A block expression evaluates to the last expression in the block. Blocks
-can be used to perform side-effects.
+empty. A block expression evaluates to the value of the last expression in the
+block. Blocks can be used to perform side-effects.
 
 {% highlight go %}
 x = {
   fmt.Println("Calculating...")
   9 * 1000
 }
+// x will be 9000
 {% endhighlight %}
 
 Discarding the value of an expression, of any type other than `()`, causes an

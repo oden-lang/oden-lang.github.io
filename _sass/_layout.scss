@@ -312,12 +312,12 @@ $header-logo-size: 32px;
   }
 
   code {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   @include media-query($on-laptop) {
     code {
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 

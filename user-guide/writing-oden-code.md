@@ -12,6 +12,7 @@ In Oden the following rules apply:
   declaration.
 * Source files may, after `package` and any `import` declarations, define zero
   or more functions and values.
+* Functions must be defined before first use.
 
 ## Example
 
@@ -22,13 +23,13 @@ package main
 // import declaration
 import fmt
 
-// value definition
-result = shout("hello, world")
-
 // function definitions can use the function definition shorthand
 // and type signatures
 shout :: string -> string
 shout(s) = s ++ "!"
+
+// value definition
+result = shout("hello, world")
 
 // main function definition, must have type: -> unit
 main() = fmt.Println(result)

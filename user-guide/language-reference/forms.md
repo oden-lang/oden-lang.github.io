@@ -91,15 +91,12 @@ signatures must be written before the definition. A type signature without a
 corresponding definition causes an error.
 
 {% highlight go %}
-// a type signature for `identity`, specifying the type to be #a -> #a
-identity :: #a -> #a
+// a type signature for `identity`, specifying the type to be a -> a
+// where `a` is a type variable
+identity : forall a. a -> a
 identity(x) = x
 
-// the same thing but also declaring the type variables using forall
-identity :: forall #a. #a -> #a
-identity(x) = x
-
-anotherFunction :: #b -> #a
+anotherFunction : forall a b. a -> b -> a
 // missing definition here, so we will get an error message when compiling
 {% endhighlight %}
 
@@ -135,7 +132,7 @@ factorial(n) = if n < 2 then 1 else n * factorial(n - 1)
 
 ## Control Flow
 
-The `if` expression has the type `bool -> #a -> #a -> #a`.
+The `if` expression has the type `forall a. bool -> a -> a -> a`.
 
 {% highlight go %}
 if 10 + 20 == 30 then 1 else 0
@@ -201,7 +198,7 @@ length of the collection.
 {% highlight go %}
 names = []{"Sarah", "Joe", "Maxime"}
 
-numbers :: []{int}
+numbers : []{int}
 numbers = []{1, 2, 3, 4, 5}
 {% endhighlight %}
 

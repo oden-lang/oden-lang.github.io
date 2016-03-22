@@ -25,7 +25,7 @@ import fmt
 
 // function definitions can use the function definition shorthand
 // and type signatures
-shout :: string -> string
+shout : string -> string
 shout(s) = s ++ "!"
 
 // value definition

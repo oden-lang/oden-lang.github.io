@@ -44,18 +44,20 @@
 {% highlight go %}
 package main
 
-import fmt
+// Import a Go package.
+import strconv
 
-square : int -> int
+// Type can be inferred by Oden.
 square(n) = n * n
 
+// Or explicitly annotated.
 twice : forall a. (a -> a) -> a -> a
 twice(f, x) = f(f(x))
 
-main : -> ()
-main() = let n = twice(square, 2) in {
-  fmt.Println("2\x2074 =", n)
-}
+res : string
+res = strconv.Itoa(twice(square, 2))
+
+main() = println("2\x2074 = " ++ res)
 {% endhighlight %}
       </div>
     </div>

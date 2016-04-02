@@ -70,7 +70,7 @@ The body can be a [block](#blocks).
 
 {% highlight go %}
 (x) -> {
-  fmt.Println("Read more about blocks below.")
+  println("Read more about blocks below.")
   x + 1
 }
 {% endhighlight %}
@@ -173,7 +173,7 @@ block. Blocks can be used to perform side-effects.
 
 {% highlight go %}
 x = {
-  fmt.Println("Calculating...")
+  println("Calculating...")
   9 * 1000
 }
 // x will be 9000
@@ -186,7 +186,7 @@ error.
 x = {
   ()       // ok to discard as it's of type ()
   9 * 1000 // causes an error
-  fmt.Println("Done wasting CPU.")
+  println("Done wasting CPU.")
 }
 {% endhighlight %}
 

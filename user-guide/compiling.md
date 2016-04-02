@@ -12,9 +12,8 @@ Go. The following is a small example of how compiling with `oden build` works.
 $ mkdir -p src/hello/
 $ cat << EOF >> src/hello/main.oden
 package hello/main
-import fmt
 
-main() = fmt.Println("Hello, world!")
+main() = println("Hello, world!")
 EOF
 $ oden build --out-path=./out
 $ GOPATH=$PWD/out go build -o hello hello/main

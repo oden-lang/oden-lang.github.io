@@ -74,20 +74,7 @@ The type of a function that takes no argument and returns an `int` is written
 
 ### Go Functions
 
-When importing functions written in Go the type system treats them differently.
-They do not support currying by default but the application of such functions
-looks the same, i.e. `f(a1, a2, a3, ..., aN)`.
-
-Oden also supports calling variadic Go functions.
-
-{% highlight go %}
-package main
-
-// import the fmt package from Go
-import fmt
-
-// apply the variadic Go func "Println" to three strings
-main -> fmt.Println("foo", "bar", "baz")
-{% endhighlight %}
+When calling a function imported from Go the function gets curried, so you can
+partially apply it just like you can with Oden functions.
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

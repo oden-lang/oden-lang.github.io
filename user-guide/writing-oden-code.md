@@ -20,9 +20,6 @@ In Oden the following rules apply:
 // package declaration
 package main
 
-// import declaration
-import fmt
-
 // function definitions can use the function definition shorthand
 // and type signatures
 shout : string -> string
@@ -32,5 +29,5 @@ shout(s) = s ++ "!"
 result = shout("hello, world")
 
 // main function definition, must have type: -> unit
-main() = fmt.Println(result)
+main() = println(result)
 {% endhighlight %}

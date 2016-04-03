@@ -78,3 +78,34 @@ When calling a function imported from Go the function gets curried, so you can
 partially apply it just like you can with Oden functions.
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+### Records
+
+Records are used to group related data into a composite structure. They are
+quite similar to objects in Javascript, but are statically typed by their
+fields. The order of fields in a record is not significant - two records are
+considered equal if they have the same set of fields with the same types.
+
+#### Polymorphic Records
+
+A record type can be polymorphic, i.e. it can allow extra unknown fields. This
+is useful when you want to write a function that accepts some record value that
+has a certain field, but you don't care if has extra fields or not. This can be
+expressed in the type system using a *row varible*. The concept of *rows* is
+the underlying construct on which records are built upon.
+
+The following type signature says that `getName` takes any record with **at
+least** the field `name` with type `string`. When instantiated with a concrete
+record type the row variable `r` will be bound to a row contain all other
+fields.
+
+{% highlight go %}
+getName : forall r. { name : string | r } -> string
+{% endhighlight %}
+
+For more information on these concepts, see the work that Oden records is
+based on:
+
+* *A Polymorphic Type System for Extensible Records and Variants*, Benedict R.
+  Gaster and Mark P. Jones ([PDF](http://www.cs.cmu.edu/~aldrich/courses/819/papers/row-poly.pdf))
+* *Extensible records with scoped labels*, Daan Leijen ([PDF](http://research.microsoft.com/pubs/65409/scopedlabels.pdf))

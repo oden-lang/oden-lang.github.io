@@ -288,6 +288,40 @@ $header-logo-size: 32px;
   }
 }
 
+.playground-runnable {
+  position: relative;
+  overflow-x: auto;
+}
+
+.playground-runnable .run {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  background: #ddd;
+  text-transform: uppercase;
+  padding: .75em 1em;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+}
+.playground-runnable .run:hover,
+.playground-runnable .run:active,
+{
+  background: #ccc;
+}
+.playground-runnable .output {
+  background-color: #eee;
+}
+.playground-runnable .output.hidden {
+  display: none;
+}
+.playground-runnable .output.error {
+  font-size: 13px;
+  color: #dd1144;
+  background-color: #FBE2E8;
+}
 
 /**
  * Start Page
@@ -336,7 +370,7 @@ $header-logo-size: 32px;
     }
   }
 
-  > .highlight,
+  > .playground-runnable,
   > figure {
     -webkit-flex: 0 0 50%;
     flex: 0 0 50%;
@@ -349,7 +383,7 @@ $header-logo-size: 32px;
       -webkit-flex: 0 0 100%;
       flex: 0 0 100%;
     }
-    > .highlight,
+    > .playground-runnable,
     > figure {
       -webkit-flex: 0 0 100%;
       flex: 0 0 100%;

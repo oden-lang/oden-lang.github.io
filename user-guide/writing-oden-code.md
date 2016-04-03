@@ -16,6 +16,7 @@ In Oden the following rules apply:
 
 ## Example
 
+<div class="playground-runnable">
 {% highlight go %}
 // package declaration
 package main
@@ -31,3 +32,4 @@ result = shout("hello, world")
 // main function definition, must have type: -> unit
 main() = println(result)
 {% endhighlight %}
+</div>

@@ -79,14 +79,14 @@ partially apply it just like you can with Oden functions.
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-### Records
+## Records
 
 Records are used to group related data into a composite structure. They are
 quite similar to objects in Javascript, but are statically typed by their
 fields. The order of fields in a record is not significant - two records are
 considered equal if they have the same set of fields with the same types.
 
-#### Polymorphic Records
+### Polymorphic Records
 
 A record type can be polymorphic, i.e. it can allow extra unknown fields. This
 is useful when you want to write a function that accepts some record value that

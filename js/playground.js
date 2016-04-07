@@ -37,9 +37,14 @@ function setupRunnables() {
     }
 
     function showSpinners() {
+      $output
+        .empty()
+        .removeClass('hidden')
+        .append('<div class="loader"><span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>');
     }
 
     function hideSpinners() {
+      $output.find('.loader').remove();
     }
 
     function display(result) {

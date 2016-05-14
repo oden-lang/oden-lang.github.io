@@ -56,7 +56,7 @@ function setupRunnables() {
 
       $.ajax({
         type: 'POST',
-        url: 'https://oden-playground.herokuapp.com/compile',
+        url: 'https://playground.oden-lang.org/compile',
         data: JSON.stringify({ odenSource: code }),
         dataType: 'json'
       }).done(function (result) {

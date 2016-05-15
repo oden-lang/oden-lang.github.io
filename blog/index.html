@@ -7,8 +7,6 @@ title: Blog
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
@@ -17,13 +15,23 @@ title: Blog
         <p class="post-excerpt">
           {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
         </p>
-        {% endif %}
 
         {% if post.comments %}
         <nav class="post-actions">
           <a class="post-comments-link" href="{{ post.url | prepend: site.baseurl }}#disqus_thread">Comments</a>
         </nav>
         {% endif %}
+
+        {% endif %}
+        <span class="post-meta">
+          {{ post.date | date: "%b %-d, %Y" }}
+          {% if post.author %}
+          by
+          <a href="{{ post.author.url }}">
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ post.author.name }}</span></span>
+          </a>
+          {% endif %}
+        </span>
       </li>
     {% endfor %}
   </ul>

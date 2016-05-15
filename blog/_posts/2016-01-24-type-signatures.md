@@ -3,6 +3,9 @@ layout: post
 title:  Type Signatures
 date:   2016-01-24 16:00:00 +0100
 author: Oskar Wickström
+author:
+  name: Oskar Wickström
+  url: https://wickstrom.tech
 categories: compiler
 comments: true
 ---

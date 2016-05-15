@@ -2,7 +2,9 @@
 layout: post
 title:  The Haskell Rewrite
 date:   2016-01-18 06:00:00 +0100
-author: Oskar Wickström
+author:
+  name: Oskar Wickström
+  url: https://wickstrom.tech
 categories: compiler
 comments: true
 excerpt: >

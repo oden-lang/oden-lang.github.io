@@ -52,21 +52,24 @@ The first versions of Oden should **not** focus on:
   Oden but it's really not a Haskell clone.
 * Macros. Might be considered in the future, but not a focus for now.
 
-## Contributing
+## Community
 
 We are committed to providing a welcoming and inspiring community for all and
 expect our [Code of Conduct](/code-of-conduct/) to be
 honored. Anyone who violates this code of conduct may be banned from the
 community.
 
-If you find the Oden project interesting and want to help work on it, you can
-submit bug reports and change requests at [the GitHub issues
-page](https://github.com/oden-lang/oden/issues).
-
-## Community
+### Spaces
 
 The following spaces are ideal for asking questions, discussing language design
 and high-level ideas, as well as keeping up to date with the project:
 
 * Mailing List: [oden-lang](https://groups.google.com/forum/#!forum/oden-lang)
 * IRC: [#oden at Freenode](irc://freenode.net/oden)
+
+### Contributing
+
+If you find the Oden project interesting and want to help work on it, you can
+submit bug reports and change requests at [the GitHub issues
+page](https://github.com/oden-lang/oden/issues).
+

@@ -61,7 +61,12 @@ community.
 
 If you find the Oden project interesting and want to help work on it, you can
 submit bug reports and change requests at [the GitHub issues
-page](https://github.com/oden-lang/oden/issues). There's also the [oden-lang
-Google Group](https://groups.google.com/forum/#!forum/oden-lang) where you can
-ask questions, discuss language design and read about what's going on in the
-project.
+page](https://github.com/oden-lang/oden/issues).
+
+## Community
+
+The following spaces are ideal for asking questions, discussing language design
+and high-level ideas, as well as keeping up to date with the project:
+
+* Mailing List: [oden-lang](https://groups.google.com/forum/#!forum/oden-lang)
+* IRC: [#oden at Freenode](irc://freenode.net/oden)

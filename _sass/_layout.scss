@@ -22,7 +22,7 @@ $header-logo-height: 40px;
   float: left;
   width: $header-logo-width;
   height: 56px;
-  margin-right: 20px;
+  margin-right: 10px;
   background-image: url('/img/oden-logo.png');
   background-size: $header-logo-width $header-logo-height;
   background-repeat: no-repeat;
@@ -56,6 +56,12 @@ $header-logo-height: 40px;
     .site-title {
       background-image: url('/img/oden-logo@3x.png');
     }
+  }
+}
+
+@include media-query($on-laptop) {
+  .site-title {
+    font-size: 20px;
   }
 }
 

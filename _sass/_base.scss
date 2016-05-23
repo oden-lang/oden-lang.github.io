@@ -18,15 +18,13 @@ body {
   color: $text-color;
   letter-spacing: $letter-spacing;
   background-color: $background-color;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -webkit-font-feature-settings: "kern" 1;
-  -moz-font-feature-settings: "kern" 1;
-  -o-font-feature-settings: "kern" 1;
-  font-feature-settings: "kern" 1;
-  font-kerning: normal;
 }
 
+@include media-query($on-palm) {
+  body {
+    font: $base-font-weight #{$palm-font-size}/#{$base-line-height} $base-font-family;
+  }
+}
 
 
 /**
@@ -38,7 +36,6 @@ ul, ol, dl, figure,
 %vertical-rhythm {
   margin-bottom: $spacing-unit / 2;
 }
-
 
 
 /**
@@ -93,7 +90,18 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $heading-font-weight;
 }
 
-
+h1 {
+    font-size: 175%;
+}
+h2 {
+    font-size: 150%;
+}
+h3 {
+    font-size: 125%;
+}
+h4 {
+    font-size: 100%;
+}
 
 /**
  * Links
@@ -137,7 +145,14 @@ blockquote {
  */
 pre,
 code {
-  font-size: 15px;
+  font-family: $monospace-font-family;
+  font-size: 16px;
+}
+@include media-query($on-palm) {
+  pre,
+  code {
+    font-size: 14px;
+  }
 }
 
 p > code {
@@ -147,6 +162,7 @@ p > code {
 pre {
   padding: 10px 14px;
   overflow-x: auto;
+  line-height: 1.4;
 
   > code {
     border: 0;

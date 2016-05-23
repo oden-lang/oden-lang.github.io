@@ -13,3 +13,4 @@ title: Language Reference
 * [Tuples](tuples.html)
 * [Slices](slices.html)
 * [Records](records.html)
+* [Protocols](protocols.html)

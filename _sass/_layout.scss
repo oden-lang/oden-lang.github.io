@@ -143,6 +143,10 @@ $header-logo-size: 32px;
     -webkit-flex-direction: row;
     flex-direction: row;
   }
+
+  .username {
+    font-family: $monospace-font-family;
+  }
 }
 
 .social-media-list {
@@ -240,46 +244,22 @@ $header-logo-size: 32px;
 
   .post-excerpt {
     font-size: $base-font-size * 1.25;
+    font-style: italic;
     color: $grey-color;
   }
 }
 
 .post-title {
-  font-size: 32px;
-  letter-spacing: -1px;
+  font-size: 175%;
   line-height: 1;
 
   @include media-query($on-laptop) {
-    font-size: 36px;
+    font-size: 28px;
   }
 }
 
 .post-content {
   margin-bottom: $spacing-unit;
-
-  h2 {
-    font-size: 26px;
-
-    @include media-query($on-laptop) {
-      font-size: 28px;
-    }
-  }
-
-  h3 {
-    font-size: 20px;
-
-    @include media-query($on-laptop) {
-      font-size: 22px;
-    }
-  }
-
-  h4 {
-    font-size: 18px;
-
-    @include media-query($on-laptop) {
-      font-size: 18px;
-    }
-  }
 }
 
 .playground-runnable {
@@ -292,21 +272,23 @@ $header-logo-size: 32px;
   top: 0;
   right: 0;
   display: inline-block;
-  background: #ddd;
-  text-transform: uppercase;
-  padding: .75em 1em;
+  background: #eee;
+  padding: 5px 10px;
   border: none;
   border-radius: 0;
   outline: none;
   cursor: pointer;
+  font-family: $monospace-font-family;
+  font-size: 16px;
 }
 .playground-runnable .run:hover,
 .playground-runnable .run:active,
 {
-  background: #ccc;
+  background: #ddd;
 }
 .playground-runnable .output {
   background-color: #eee;
+  margin-bottom: $spacing-unit;
 }
 .playground-runnable .output.hidden {
   display: none;

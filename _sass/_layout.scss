@@ -21,26 +21,46 @@
   }
 }
 
-$header-logo-size: 32px;
+$header-logo-width: 48px;
+$header-logo-height: 40px;
+
+.logo {
+  flex: 0 0 auto;
+  width: $header-logo-width;
+  height: $header-logo-height;
+  margin-right: 10px;
+  background-image: url('/img/oden-logo.png');
+  background-size: $header-logo-width $header-logo-height;
+  background-repeat: no-repeat;
+  background-position: 0px center;
+}
 
 .site-title {
   -webkit-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding-left: $header-logo-size + 8px;
-  background-image: url('/logo-no-text.svg');
-  background-size: $header-logo-size $header-logo-size;
-  background-repeat: no-repeat;
-  background-position: 0px center;
   font-size: 22px;
-  font-weight: 300;
+  font-weight: normal;
   letter-spacing: -1px;
   margin-bottom: 0;
+  padding: 10px;
 
   &,
   &:visited,
   & a,
   & a:visited {
     color: $grey-color-dark;
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .site-title {
+      background-image: url('/img/oden-logo@2x.png');
+    }
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 3) {
+    .site-title {
+      background-image: url('/img/oden-logo@3x.png');
+    }
   }
 }
 

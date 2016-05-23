@@ -54,6 +54,8 @@ The first versions of Oden should **not** focus on:
 
 ## Community
 
+<img src="/img/oden-logo@3x.png" alt="Oden Logo" style="float: right; margin-left: 10px;" width="144" height="120">
+
 We are committed to providing a welcoming and inspiring community for all and
 expect our [Code of Conduct](/code-of-conduct/) to be
 honored. Anyone who violates this code of conduct may be banned from the

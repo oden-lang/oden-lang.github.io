@@ -8,9 +8,10 @@ To run Oden you need Go installed and setup. Follow the instructions in
 
 ## Binaries
 
-Oden binaries are available at [Releases](https://github.com/oden-lang/oden/releases) on
-GitHub. Choose the version, preferrably the latest, and download the ZIP file for your
-operating system.
+Oden binaries are available at
+[Releases](https://github.com/oden-lang/oden/releases) on GitHub. Choose the
+version, preferrably the latest, and download the archive for your operating
+system.
 
 *There may be biniaries missing for some major operating systems.*
 
@@ -18,7 +19,7 @@ operating system.
 
 ### Getting the Code
 
-Go to https://github.com/oden-lang/oden and `git clone` or download a ZIP file
+Go to [https://github.com/oden-lang/oden]() and `git clone` or download a ZIP file
 with the source. ZIP files with source code are available in the
 [Releases](https://github.com/oden-lang/oden/releases) as well.
 

@@ -6,8 +6,11 @@ title: Protocols
 In Oden, and in funtional programming in general, you can go a long way with
 just data and functions.  But sometimes it's nice to be able to create a
 function that can take any data type as long as it follows a certain contract.
-This contract is in Oden called a *Protocol* which contains a set of *methods*.
-Given a defined Protocol you can *implement* the Protocol for a specific type.
+In Oden this is called a *Protocol* and a protocol contains a set of *methods*.
+Given a defined protocol you can *implement* the protocol for a specific type.
+The idea of protocols is not new, in fact it's very similar to [_type
+classes_](https://www.haskell.org/tutorial/classes.html) in Haskell and
+[_traits_](https://doc.rust-lang.org/book/traits.html) in Rust.
 
 When the compiler encounters a use of a Protocol method together with a data
 type it checks to see if there's an implementation in scope that it can use. If

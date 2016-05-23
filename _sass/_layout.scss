@@ -60,6 +60,9 @@ $header-logo-height: 40px;
 }
 
 @include media-query($on-laptop) {
+  .site-header .wrapper {
+    padding: 0 10px;
+  }
   .site-title {
     font-size: 20px;
   }
@@ -67,8 +70,17 @@ $header-logo-height: 40px;
 
 @include media-query($on-palm) {
   .site-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 66px;
     font-size: 18px;
     text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 }
 

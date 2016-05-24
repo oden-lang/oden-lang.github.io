@@ -75,8 +75,26 @@ function setupRunnables() {
       });
     }
 
+    function isScrolledIntoView($elem)
+    {
+        var $window = $(window);
+
+        var docViewTop = $window.scrollTop();
+        var docViewBottom = docViewTop + $window.height();
+
+        var elemTop = $elem.offset().top;
+        var elemBottom = elemTop + $elem.height();
+
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    }
+
     $run.on('click', function () {
       compileAndRun($code.text());
+      if (!isScrolledIntoView($code)) {
+        $('html, body').animate({
+          scrollTop: $code.offset().top + ($code.height() / 2) - ($(window).height() / 2)
+        }, 200);
+      }
     });
   });
 

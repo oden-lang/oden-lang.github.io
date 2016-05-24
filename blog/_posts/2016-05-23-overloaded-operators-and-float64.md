@@ -31,5 +31,5 @@ main() = println(math.Pi)
 
 Oden 0.3.1. is available in the [Playground](https://playground.oden-lang.org/)
 and the I've just added a new [section on
-Protocols](/user-guide/language-reference/protocols.html) in the User Guide.
+Protocols](/user-guide/latest/the-language/protocols.html) in the User Guide.
 

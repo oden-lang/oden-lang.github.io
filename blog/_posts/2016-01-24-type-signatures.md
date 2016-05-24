@@ -16,7 +16,7 @@ writing the code, support for type signatures has been added in [Oden
 
 Type signatures are optional but recommended to use. Read more about defining
 functions and type signatures in the [Language
-Reference](/user-guide/language-reference/forms.html#functions).
+Reference](/user-guide/latest/the-language/functions.html).
 
 {% highlight clojure %}
 (: incr (int -> int))

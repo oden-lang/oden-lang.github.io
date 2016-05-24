@@ -13,6 +13,37 @@
         <p class="description">
         {{ site.description }}
         </p>
+        <div class="playground-runnable">
+{% highlight go %}
+package main
+
+// Oden has ad-hoc polymorphism through records.
+impl Monoid({x : int, y: int}) {
+	Apply(p1, p2 ) = { x = p1.x + p2.x, y = p1.y + p2.y }  
+}
+
+// Types can be inferred by Oden. Here we also use the overloaded ++ function which
+// is an alias for Monoid::Apply.
+move(p) = p ++ { x = 10, y = 20 }
+
+// You can explictly annotate the types. We use records and the
+// block expression here (for demo purposes).
+printPoint : forall r. { x : int, y : int | r } -> ()
+printPoint(p) = {
+	print(p.x)
+	print(", ")
+	print(p.y)
+}
+
+// Oden supports higher-order functions and polymorphic functions.
+twice : forall a. (a -> a) -> a -> a
+twice(f, x) = f(f(x))
+
+// We begin our programs in the 'main' function, which always has type '-> ()'.
+main : -> ()
+main() = printPoint(twice(move, { x = 5, y = 10 }))
+{% endhighlight %}
+        </div>
 
         <div class="features">
           <h2>Overview</h2>
@@ -40,26 +71,9 @@
           adjust your expectations accordingly and feel free to <a href="/about/#contributing">join and
           contribute</a>.
           </p>
-        </div>
-        <div class="playground-runnable">
-{% highlight go %}
-package main
-
-// Import a Go package.
-import strconv
-
-// Type can be inferred by Oden.
-square(n) = n * n
-
-// Or explicitly annotated.
-twice : forall a. (a -> a) -> a -> a
-twice(f, x) = f(f(x))
-
-res : string
-res = strconv.Itoa(twice(square, 2))
-
-main() = println("2\x2074 = " ++ res)
-{% endhighlight %}
+          <h3>Want to learn more?</h3>
+          <p>Dive right into the <a href="/user-guide/">User Guide</a> to
+          get started!</p>
         </div>
       </div>
     </div>

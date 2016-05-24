@@ -351,53 +351,12 @@ $header-logo-height: 40px;
  * Start Page
  */
 .start.wrapper {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-align-items: stretch;
-  align-items: stretch;
 
   .description {
-    -webkit-flex: 0 0 100%;
-    flex: 0 0 100%;
     font-size: 200%;
     margin: 2em 0 3em;
     text-align: center;
     font-weight: 300;
-  }
-
-  code {
-    font-size: 14px;
-  }
-
-  @include media-query($on-laptop) {
-    code {
-      font-size: 13px;
-    }
-  }
-
-  @include media-query($on-palm) {
-    .description {
-      font-size: 150%;
-    }
-  }
-
-  .features {
-    -webkit-flex: 0 0 50%;
-    flex: 0 0 50%;
-    h2 {
-      font-size: 18px;
-      font-weight: bold;
-    }
-  }
-
-  > .playground-runnable,
-  > figure {
-    -webkit-flex: 0 0 50%;
-    flex: 0 0 50%;
   }
 }
 

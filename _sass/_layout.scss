@@ -306,8 +306,8 @@ $header-logo-height: 40px;
   top: 0;
   right: 0;
   display: inline-block;
-  background: #eee;
-  padding: 5px 10px;
+  background: #ddd;
+  padding: 5px 15px;
   border: none;
   border-radius: 0;
   outline: none;
@@ -316,9 +316,10 @@ $header-logo-height: 40px;
   font-size: 16px;
 }
 .playground-runnable .run:hover,
-.playground-runnable .run:active,
+.playground-runnable .run:focus,
+.playground-runnable .run:active
 {
-  background: #ddd;
+  background: #ccc;
 }
 .playground-runnable .output {
   background-color: #eee;

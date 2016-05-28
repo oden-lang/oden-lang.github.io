@@ -310,7 +310,6 @@ $header-logo-height: 40px;
   padding: 5px 15px;
   border: none;
   border-radius: 0;
-  outline: none;
   cursor: pointer;
   font-family: $monospace-font-family;
   font-size: 16px;
@@ -355,9 +354,32 @@ $header-logo-height: 40px;
 
   .description {
     font-size: 200%;
-    margin: 2em 0 3em;
+    margin: $spacing-unit * 2 0 $spacing-unit * 2;
     text-align: center;
     font-weight: 300;
+  }
+}
+
+.quick-links {
+  text-align: center;
+  margin: 0 0 $spacing-unit * 2;
+}
+
+.quick-links a {
+  display: inline-block;
+  background: #ddd;
+  padding: 5px 15px;
+  min-width: 4em;
+  cursor: pointer;
+  font-family: $monospace-font-family;
+  font-size: 22px;
+  color: #fff;
+  background: $brand-color;
+  text-decoration: none;
+  
+  &:focus,
+  &:hover {
+    background: darken($brand-color, 15%);
   }
 }
 

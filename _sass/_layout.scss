@@ -298,16 +298,24 @@ $header-logo-height: 40px;
 
 .playground-runnable {
   position: relative;
-  overflow-x: auto;
 }
-
-.playground-runnable .run {
+.playground-runnable nav {
   position: absolute;
   top: 0;
   right: 0;
+  display: block;
+}
+
+.playground-runnable nav form {
+  display: inline-block;
+}
+
+.playground-runnable nav button,
+.playground-runnable nav input {
   display: inline-block;
   background: #ddd;
   padding: 5px 15px;
+  margin-left: 5px;
   border: none;
   border-radius: 0;
   cursor: pointer;

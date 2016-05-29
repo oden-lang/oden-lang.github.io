@@ -39,7 +39,7 @@ The first versions of Oden should **not** focus on the following objectives.
 They may be achieved anyway, but that should be regarded as a bonus.
 
 * A fast compiler. Emphasis lies on a simple implementation with
-  correct semantics, not compilation speed.
+  correct semantics, not compilation or runtime speed.
 * Easy workflow. After running the Oden compiler the user might
   have to step in to a directory of output Go files and run `go build`
   etc.

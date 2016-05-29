@@ -153,19 +153,12 @@ code {
   font-family: $monospace-font-family;
   font-size: 16px;
 }
-@include media-query($on-palm) {
-  pre,
-  code {
-    font-size: 14px;
-  }
-}
-
 p > code {
   white-space: nowrap;
 }
 
 pre {
-  padding: 10px 14px;
+  padding: $spacing-unit/4 $spacing-unit/2;
   overflow-x: auto;
   line-height: 1.4;
 
@@ -175,7 +168,15 @@ pre {
     padding-left: 0;
   }
 }
-
+@include media-query($on-palm) {
+  pre {
+    padding: $spacing-unit/4 0;
+  }
+  pre,
+  code {
+    font-size: 14px;
+  }
+}
 
 
 /**

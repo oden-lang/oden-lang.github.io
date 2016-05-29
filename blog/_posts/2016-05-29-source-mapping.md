@@ -17,9 +17,10 @@ compiled programs. This feature just landed on the master branch and will be
 available in the 0.3.3 release.
 
 Given an Oden program like the following:
-
+ 
+<div class="playground-runnable">
 {% highlight go %}
-package dbg/main
+package main
 
 shout : string -> ()
 shout(s) = println(s ++ "!")
@@ -29,6 +30,7 @@ main() =
   let msg = "Debug me"
   in shout(msg)
 {% endhighlight %}
+</div>
 
 When compiled the Go output looks like this:
 
@@ -47,26 +49,26 @@ func println(x interface{}) {
 	fmt.Println(x)
 }
 
-//line src/dbg.oden:7
+//line src/main.oden:7
 func main() {
-	//line src/dbg.oden:8
+	//line src/main.oden:8
 	func() struct{} {
-		//line src/dbg.oden:8
+		//line src/main.oden:8
 		var msg string = "Debug me"
-		//line src/dbg.oden:9
+		//line src/main.oden:9
 		return shout(msg)
 	}()
 }
 
-//line src/dbg.oden:4
+//line src/main.oden:4
 func shout(s string) struct{} {
-	//line src/dbg.oden:4
+	//line src/main.oden:4
 	return func(_g0 string) struct{} {
-		//line src/dbg.oden:4
+		//line src/main.oden:4
 		return func() struct{} {
-			//line src/dbg.oden:4
+			//line src/main.oden:4
 			println(_g0)
-			//line src/dbg.oden:4
+			//line src/main.oden:4
 			return struct{}{}
 		}()
 	}((s + "!"))
@@ -77,7 +79,7 @@ And a short transcript from a `gdb` session:
 
 {% highlight none %}
 (gdb) list
-1       package dbg/main
+1       package main
 2
 3       shout : string -> ()
 4       shout(s) = println(s ++ "!")
@@ -87,14 +89,14 @@ And a short transcript from a `gdb` session:
 8         let msg = "Debug me"
 9         in shout(msg)
 (gdb) break 4
-Breakpoint 1 at 0x2110: /Users/owi/Projects/oden-path/src/dbg.oden:4. (3 locations)
+Breakpoint 1 at 0x2110: /Users/owi/Projects/oden-path/src/main.oden:4. (3 locations)
 (gdb) run
 Starting program: /Users/owi/Projects/oden-path/main
 [New Thread 0x1713 of process 48301]
 [New Thread 0x1803 of process 48301]
 [New Thread 0x1903 of process 48301]
 
-Thread 1 hit Breakpoint 1, main.shout (s=..., ~r1=...) at src/dbg.oden:4
+Thread 1 hit Breakpoint 1, main.shout (s=..., ~r1=...) at src/main.oden:4
 4       shout(s) = println(s ++ "!")
 (gdb) info args
 s = 0x107490 "Debug me"

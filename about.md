@@ -33,8 +33,9 @@ experimental language and it might change drastically*.
   should be *another language for the Go ecosystem*.
 * The compiler should be easy to change and hack on.
 * Fun to program in!
-* Use the MVP Pyramid approach -- complement functional features with
-  usability and emotional design.
+* Use the [MVP
+  Pyramid](https://brianpagan.net/2015/lean-startup-mvp-how-to-make-meaningful-products/)
+  approach -- complement functional features with usability and emotional design.
 
 ### Shortcuts/Tradeoffs
 

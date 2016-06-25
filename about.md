@@ -18,6 +18,7 @@ experimental language and it might change drastically*.
 
 * A functional language inspired by Haskell, LISP and Go compiling
   to Go.
+* Avoid cleverness, prefer clarity.
 * Oden should feature a safe but versatile type system - more flexible than the
   one in Go and at least as safe.
   - Polymorphism (parametric and ad hoc).
@@ -25,17 +26,19 @@ experimental language and it might change drastically*.
   - Support for type annotations on top-level forms.
   - Polymorphic user-defined compound types.
   - Higher-kinded types.
-* Immutable data structures.
 * Higher-level abstractions for error handling, nil checking etc.
+* Immutable data structures.
 * Pattern matching with exhaustiveness checking.
 * Support the built-in types of Go and provide simple interoperability. Oden
   should be *another language for the Go ecosystem*.
 * The compiler should be easy to change and hack on.
-* **Fun to program in!**
+* Fun to program in!
+* Use the MVP Pyramid approach -- complement functional features with
+  usability and emotional design.
 
 ### Shortcuts/Tradeoffs
 
-The first versions of Oden should **not** focus on the following objectives.
+The first versions of Oden should *not* focus on the following objectives.
 They may be achieved anyway, but that should be regarded as a bonus.
 
 * A fast compiler. Emphasis lies on a simple implementation with

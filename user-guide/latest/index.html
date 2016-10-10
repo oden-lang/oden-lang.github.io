@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Copyright © 2015 Oskar Wickström">
+  <title>Oden User Guide</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="icon" href="img/oden-logo-bare.svg">
+  
+  <link href='vendor/crimson/stylesheet.css' rel='stylesheet' type='text/css'>
+  <link href='vendor/fira/fira.css' rel='stylesheet' type='text/css'>
+  
+  <script src="js/jquery.js"></script>
+  
+  <link rel="stylesheet" href="highlight.css">
+  <script src="vendor/highlight/highlight.pack.js"></script>
+  
+  <script src="js/user-guide.js"></script>
+  <link rel="stylesheet" href="styles/user-guide.css">
+</head>
+<body itemscope itemtype="http://schema.org/TechArticle">
+<div class="logo">
+  <img src="img/oden-logo.svg"
+      width="288"
+      height="240"
+      alt="Oden Logo">
+</div>
+<header>
+<h1 class="title" itemprop="name">Oden User Guide</h1>
+<cite class="author" itemprop="author">Copyright © 2015 Oskar Wickström</cite>
+</header>
+<h2 id="contents">Contents</h2>
+<nav id="TOC">
+<ul>
+<li><a href="#preface">Preface</a><ul>
+<li><a href="#conventions-used-in-this-guide">Conventions Used In This Guide</a></li>
+<li><a href="#license">License</a></li>
+</ul></li>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#the-oden-command">The Oden Command</a></li>
+<li><a href="#compiling">Compiling</a></li>
+<li><a href="#running-programs-directly">Running Programs Directly</a></li>
+<li><a href="#playground">Playground</a></li>
+</ul></li>
+<li><a href="#the-language">The Language</a><ul>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#basic-literals">Basic Literals</a></li>
+<li><a href="#unit">Unit</a></li>
+<li><a href="#operators">Operators</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#type-variables">Type Variables</a></li>
+<li><a href="#control-flow">Control Flow</a></li>
+<li><a href="#blocks">Blocks</a></li>
+<li><a href="#let-bindings">Let Bindings</a></li>
+<li><a href="#tuples">Tuples</a></li>
+<li><a href="#slices">Slices</a></li>
+<li><a href="#records">Records</a></li>
+<li><a href="#protocols">Protocols</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+</nav>
+<h2 id="preface">Preface</h2>
+<p>Welcome to the Oden User Guide. Here you can learn about <em>The Oden Programming Language</em> - an experimental, statically typed, functional programming language, built for the Go ecosystem.</p>
+<p>This guide assumes that you as a reader have a basic knowledge of at least one mainstream programming language, be it functional, procedural, object-oriented, or something else. You do not have to be an expert in functional programming to read this guide, nor do you have to know the Go programming language. Some advanced concepts, not specific to Oden, are only touched upon briefly. You are encouraged to follow the references in the end of the guide to learn more.</p>
+<h3 id="conventions-used-in-this-guide">Conventions Used In This Guide</h3>
+<ul>
+<li><em>Italic</em> text is used for emphasis and for new terms.</li>
+<li><code>Constant Width</code> text is used for file names, references to code elements, program listings, shell commands, and program output.</li>
+<li><strong><code>Constant Width Bold</code></strong> text is used to mark user input in shell command listings.</li>
+<li>The <code>$</code> character marks the shell prompt in shell command listings.</li>
+</ul>
+<h3 id="license">License</h3>
+<p>This User Guide is licensed under the same license as the Oden source code – the <a href="https://github.com/oden-lang/oden/blob/master/LICENSE.md">MIT License</a>.</p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="installation">Installation</h3>
+<p>To run Oden you need Go installed and setup. Follow the instructions in <a href="https://golang.org/doc/code.html"><em>How to Write Go Code</em></a>.</p>
+<h4 id="binaries">Binaries</h4>
+<p>Oden binaries are available at <a href="https://github.com/oden-lang/oden/releases">Releases</a> on GitHub. Choose the version, preferrably the latest, and download the archive for your operating system. There may be biniaries missing for some major operating systems.</p>
+<h4 id="building-from-source">Building From Source</h4>
+<p>Go to <a href="https://github.com/oden-lang/oden">Oden at GitHub</a> and <code>git clone</code> or download a ZIP file with the source. ZIP files with source code are available in the releases page as well.</p>
+<p>When you have the source create a distribution of Oden by following the instructions in the <code>BUILD.md</code> file, located in the root of the source code tree.</p>
+<h3 id="the-oden-command">The Oden Command</h3>
+<p>The Oden distribution comes with a command line tool called <code>oden</code>. Use the <code>--help</code> flag to see the usage message, listing available subcommands.</p>
+<pre class=><code>$ <strong>oden --help</strong>
+Usage: oden command [options]
+
+Commands:
+
+  build            compile all source files in the Oden path
+  run              run a specific Oden file as main
+  lint             check an Oden file for errors and warnings
+  print-inferred   infer types and print the package in the given file
+  print-compiled   compile and print the package in the given file
+
+Options:
+
+  -h            --help             Print this help message
+  -V            --version          Print the CLI version
+  -W[all|none]  --warn[=all|none]  Enable or disable compiler warnings
+  -p[DIR]       --oden-path[=DIR]  Search path for Oden sources
+  -o[DIR]       --out-path[=DIR]   GOPATH output directory
+  -M            --monochrome       Print without colors
+</code></pre>
+<h3 id="compiling">Compiling</h3>
+<p>We use the <code>build</code> subcommand to compile all sources in the <em>Oden path</em>. For the following example we use the classic Hello World program written in Oden. It should be located in <code>src/hello.oden</code>.</p>
+<pre class=oden><code>package hello/main
+
+main() = println("Hello, world!")
+</code></pre>
+<p>The Oden path is a search path of semicolon-separated paths, defaulting to <code>&quot;.&quot;</code>, from which the Oden compiler tries to find packages. Each directory in the Oden path should have <code>src</code> directory inside of it. The Oden path is very similar to the <code>GOPATH</code> from Go.</p>
+<pre class=><code>$ <strong>oden build</strong>
+</code></pre>
+<p>The compiler writes Go source files to <code>target/go</code> by default. By extending the <code>GOPATH</code> to include the output directory path, we compile the executable program using a standard Go build command.</p>
+<pre class=><code>$ <strong>GOPATH=PWD/target/go:$GOPATH go build -o hello hello/main</strong>
+$ <strong>./hello</strong>
+Hello, world!
+</code></pre>
+<h3 id="running-programs-directly">Running Programs Directly</h3>
+<p>To run an Oden main package without going through the hassle of compiling separately, use the <code>run</code> subcommand. Remember our Hello World program from before? If we save it in a file called <code>hello.oden</code> we can run it directly like this:</p>
+<pre class=><code>$ <strong>oden run hello.oden</strong>
+Hello, world!
+</code></pre>
+<p>When running an Oden file directly it can be located outside the Oden path. Only packages imported by the main package will be resolved from the path.</p>
+<h3 id="playground">Playground</h3>
+<p>To try out stuff in Oden and to share ideas, be sure to check out <a href="https://playground.oden-lang.org">the Playground</a>. It is an online application where you can write and run Oden programs in your web browser.</p>
+<h2 id="the-language">The Language</h2>
+<h3 id="packages">Packages</h3>
+<p>A <em>package</em> in Oden is the top level in which you write Oden source code. Every <code>.oden</code> source file corresponds to a single package; a package cannot be be spread over multiple source files. Every package must begin with a <em>package declaration</em>. The <code>package</code> keyword is followed by a <em>fully qualified package name</em>.</p>
+<pre class=><code>package <em>fully-qualified-name</em>
+</code></pre>
+<p>The fully qualified name consists of one or more <em>segments</em> separated by slashes.</p>
+<pre class=><code><em>name<sub>1</sub></em>/<em>name<sub>2</sub></em>/.../<em>name<sub>n</sub></em>
+</code></pre>
+<h4 id="import-declarations">Import Declarations</h4>
+<p>After the package declaration follows zero or more <em>import declarations</em>. Imports can be either <em>native</em> or <em>foreign</em>. A native import is an import of an Oden package.</p>
+<pre class=><code>import <em>fully-qualified-name</em>
+</code></pre>
+<p>A foreign import is written with the <code>foreign</code> keyword and a string literal for the foreign package <em>import path</em>. The reason for this being a string is that the Go specification <a href="https://golang.org/ref/spec#ImportPath">does not mandate the format of Go import paths</a>.</p>
+<pre class=><code>import foreign "<em>import-path</em>"
+</code></pre>
+<p>Imported packages are made visible in the scope of the importing package by an <em>import alias</em>. For native packages, the last segment of the fully qualified package name is used as the package alias. For native Go packages, the <a href="https://golang.org/ref/spec#PackageName">package name</a> specified in the Go <em>package clause</em> is used, regardless of the import path. To access members of an imported package you write the alias, a dot, and the member identifier.</p>
+<pre class=><code><em>package-alias</em>.<em>member</em>
+</code></pre>
+<h4 id="value-definitions">Value Definitions</h4>
+<p>After package and import declarations comes <em>value definitions</em>. These can be basic values like numbers or strings, but also functions. A value definition is denoted by a name, an equals sign, and the expression to bind the name to.</p>
+<pre class=><code><em>name</em> = <em>expression</em>
+</code></pre>
+<p>The following program imports the <code>strconv</code> package from Go, defines a function <code>shout</code> and a value <code>result</code>, and defines the <em>main</em> function, the entry point of the program. The main function must be a function taking no argument and returning <code>()</code>, i.e. have the type <code>(-&gt; ())</code>.</p>
+<pre class=oden playground-runnable><code>package main
+
+import foreign "strconv"
+
+shout(s) = s ++ "!"
+
+result = shout(strconv.Itoa(9000))
+
+main() = println(result)
+</code></pre>
+<h3 id="basic-literals">Basic Literals</h3>
+<p>There are two types of number literals supported; <code>int</code> and <code>float64</code> literals.</p>
+<pre class="oden" language="oden"><code>123
+-588
+0.00001
+-400.123</code></pre>
+<p>There are two boolean literals, <code>true</code> and <code>false</code>, just as in Go.</p>
+<pre class="oden" language="oden"><code>true
+false</code></pre>
+<p>String literals are enclosed in double quotes.</p>
+<pre class="oden" language="oden"><code>&quot;hello&quot;
+&quot;&quot;
+&quot;\nomg\nnewlines&quot;</code></pre>
+<h3 id="unit">Unit</h3>
+<p><em>Unit</em> is a built-in type that is inhabited by a single value, the <em>unit value</em>, which carries no information. Unit is returned by functions that cause side effects and have no useful return value to give.</p>
+<p>Both the unit type and the unit value literal are written with an empty set of parenthesis. Here’s how you define a function that returns unit and use that function to perform a side effect.</p>
+<pre class="oden" language="oden"><code>brewCoffee : Amount -&gt; ()
+brewCoffee(amount) = {
+  // do the actual coffee brewing here
+
+  // then return unit
+  ()
+}</code></pre>
+<p>Often the side effect functions you use already return unit, which means you don’t need to explicitly return unit like in the previous example. In the following example we use our <code>brewCoffee</code> function and then print to the console. We return unit by ending with the application of the <code>println</code> function, as it returns unit.</p>
+<pre class="oden" language="oden"><code>coffeeBreak : -&gt; ()
+coffeeBreak() = {
+  brewCoffee(twoCups)
+  println(&quot;All right, ready to code again!&quot;)
+}</code></pre>
+<p>Functions from Go, that has no return value, return unit when imported in Oden. For example, the following Go function would have the type <code>string -&gt; ()</code> in Oden.</p>
+<div class="sourceCode"><pre class="sourceCode go"><code class="sourceCode go"><span class="kw">func</span> sayHi(name <span class="dt">string</span>) {
+  fmt.Println(<span class="st">&quot;Hi&quot;</span>, name)
+}</code></pre></div>
+<h3 id="operators">Operators</h3>
+<p>There are two types of operators in Oden – <em>unary</em> and <em>binary</em>.</p>
+<p>Unary operators take one value as argument and are written before the value expression. This is called <em>prefix notation</em>. Oden has only two unary operators; negation and logical not.</p>
+<pre class="oden" language="oden"><code>-1
+!x</code></pre>
+<p>Binary operators take two values as arguments and are written in between the value expressions. This is called <em>infix notation</em>. Let’s look at some binary operators:</p>
+<pre class="oden" language="oden"><code>1 + 2
+1 - 2
+2 * 2
+4 / 2
+(100 - 50) / 2
+100 * (50 + 25)
+1 == 2
+1 != 2
+&quot;Foo&quot; ++ &quot;Bar&quot;
+false &amp;&amp; (true || (1 == 2))</code></pre>
+<p>During compilation operators are expanded in to predefined <a href="#protocols"><em>protocol method applications</em></a>. The following table shows what they expand to.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Protocol</th>
+<th style="text-align: left;">Method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: left;">Num</td>
+<td style="text-align: left;">Negate</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>!</code></td>
+<td style="text-align: left;">Logical</td>
+<td style="text-align: left;">Not</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: left;">Num</td>
+<td style="text-align: left;">Add</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: left;">Num</td>
+<td style="text-align: left;">Subtract</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>*</code></td>
+<td style="text-align: left;">Num</td>
+<td style="text-align: left;">Multiply</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: left;">Num</td>
+<td style="text-align: left;">Divide</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&amp;&amp;</code></td>
+<td style="text-align: left;">Logical</td>
+<td style="text-align: left;">Conjunction</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>||</code></td>
+<td style="text-align: left;">Logical</td>
+<td style="text-align: left;">Disjunction</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>++</code></td>
+<td style="text-align: left;">Monoid</td>
+<td style="text-align: left;">Apply</td>
+</tr>
+</tbody>
+</table>
+<p>With operator expansion we can <em>overload</em> all operators with our own types, as they are aliases for protocol methods. For more information on overloading see <a href="#overloading-operators">“Overloading Operators”</a>.</p>
+<h4 id="using-operators-as-function-values">Using Operators As Function Values</h4>
+<p>Currently it is not possible to use these operators as first-class values, passing them to functions or using them in a let, e.g. <code>map(+, numbers)</code>. You can however wrap them in a standard function and pass that to a higher-order function.</p>
+<h3 id="functions">Functions</h3>
+<p>Functions are the bread and butter of any functional programming language. Functions map input values to output values and are used to structure a program and to create reusable abstractions. If you know what the function <em>uppercase</em> does, there’s no need for you to know <em>how</em> it does it. You can use it to get your strings uppercased without worrying about the implementation.</p>
+<p>In Oden functions are first-class entities. You can create them on the fly and pass them around as values. A <em>function expression</em> is written using an argument list followed by an arrow and a function body.</p>
+<pre class=><code>(<em>argument<sub>1</sub></em>, <em>argument<sub>2</sub></em>, ..., <em>argument<sub>n</sub></em>) -> <em>body</em>
+</code></pre>
+<p>The argument list can contain zero or more arguments, separated by commas and enclosed in parenthesis. The function body is a single expression that gets evaluated when the function is applied.</p>
+<p>The following function takes an argument <code>x</code> and applies the <code>+</code> operator to <code>x</code> and the literal <code>1</code>, effectively incrementing the number.</p>
+<pre class="oden" language="oden"><code>(x) -&gt; x + 1</code></pre>
+<h4 id="defining-functions">Defining Functions</h4>
+<p>Functions can be defined at the top level just like any other value. We write the name, an equals sign, and the function expression.</p>
+<pre><code>increment = (x) -&gt; x + 1</code></pre>
+<p>However, as defining functions is such a common task, Oden provides a <em>function definition shorthand</em>. Using the shorthand you write the function name, the argument list, an equals sign and the function body.</p>
+<pre><code>increment(x) = x + 1</code></pre>
+<p>The two definitions of <code>increment</code> are equivalent.</p>
+<h4 id="function-application">Function Application</h4>
+<p>Functions are applied using parenthesis, contaning the parameters separated by commas.</p>
+<pre class=><code><em>function-expression</em>(<em>parameter<sub>1</sub></em>, <em>parameter<sub>2</sub></em>, ..., <em>parameter<sub>n</sub></em>)
+</code></pre>
+<p>Here we first define a function <code>square</code> and then we apply the function to the literal <code>4</code>.</p>
+<pre class="oden" language="oden"><code>square(x) = x * x
+squareOfFour = square(4)</code></pre>
+<p>We can also define functions that take no arguments. In the following expression the function <code>makeNum</code> is applied with no argument to give us some number. This is useful for deferring a computation until it’s needed.</p>
+<pre class="oden" language="oden"><code>makeNum() * makeNum()</code></pre>
+<h4 id="recursion">Recursion</h4>
+<p>Top-level functions can apply themselves recursively. There is currently no <a href="https://en.wikipedia.org/wiki/Tail_call"><em>tail call optimization</em></a> being done in Oden, so be careful with these.</p>
+<pre class="oden" language="oden"><code>factorial(n) =
+  if n &lt; 2
+    then 1
+    else n * factorial(n - 1)</code></pre>
+<h4 id="function-types">Function Types</h4>
+<p>Functions, being values, have types. A function type denotes the argument type (the <em>domain</em>) and the return value type (the <em>range</em>), separated by an arrow.</p>
+<pre class=><code><em>domain</em> -> <em>range</em>
+</code></pre>
+<p>When defining a value or a function it is recommended to add an explicit type signature. Type signatures must be written before the definition. In the following code we specify <code>increment</code> to have type <code>int -&gt; int</code>.</p>
+<pre class="oden"><code>increment : int -&gt; int
+increment(x) = x + 1</code></pre>
+<p>Types of functions that take no argument are written in a similar way – you just omit the parameter type before the arrow. The following code specifies the type of our <code>makeNum</code> function.</p>
+<pre class="oden"><code>makeNum : -&gt; int
+makeNum() = 3</code></pre>
+<p>If we only write the type signature and omit the definition, we will get a compiler error.</p>
+<pre class="oden" language="oden"><code>anotherFunction : forall a b. a -&gt; b -&gt; a
+// definition is missing!</code></pre>
+<h4 id="currying">Currying</h4>
+<p>Oden functions are <a href="https://en.wikipedia.org/wiki/Currying"><em>curried</em></a>. The type of a function that takes values of types <code>a</code> and <code>b</code>, returning a <code>c</code> can be written <code>a -&gt; b -&gt; c</code>. But it can also be written as <code>a -&gt; (b -&gt; c)</code>, which is how the compiler sees it.</p>
+<p>The parenthesis indicate that the function has just one argument, of type <code>a</code>, and return another function from <code>b</code> to <code>c</code>. But how can we write functions that take multiple arguments? The answer is that we can’t! The compiler performs a trick to make it look like we can.</p>
+<p>Oden lets you write function expressions with multiple arguments:</p>
+<pre class="oden" language="oden"><code>(x, y, z) -&gt; x</code></pre>
+<p>Function expression with multiple arguments gets expanded to nested functions, each having only one argument.</p>
+<pre class="oden" language="oden"><code>(x) -&gt; (y) -&gt; (z) -&gt; x</code></pre>
+<p>The type of such a function expression is:</p>
+<pre class="oden" language="oden"><code>forall a b c. a -&gt; (b -&gt; (c -&gt; a))</code></pre>
+<p>As curried functions are central in Oden their types can be written without paranthesis, with arrows between each nesting.</p>
+<pre class="oden" language="oden"><code>forall a b c. a -&gt; b -&gt; c -&gt; a</code></pre>
+<p>In other words, <code>a -&gt; (b -&gt; c)</code> and <code>a -&gt; b -&gt; c</code> are equivalent.</p>
+<h5 id="using-currying">Using Currying</h5>
+<p>With currying you can apply a function to its first argument, get another function back, and use that function later – similar to <a href="https://en.wikipedia.org/wiki/Partial_application">partial application</a>. In the following code we create function <code>personSays</code> that takes two strings. We apply the function with only one string and get a function back. Later we apply it with the other string to actually print something.</p>
+<pre class="oden playground-runnable" language="oden"><code>package main
+
+personSays(who, what) =
+  println(who ++ &quot; says: &quot; ++ what)
+
+simonSays = personSays(&quot;Simon&quot;)
+
+main() = simonSays(&quot;write a program in Oden&quot;)</code></pre>
+<h5 id="go-functions">Go Functions</h5>
+<p>When applying a function imported from Go the function gets curried automatically, so you can partially apply it just like you can with Oden functions.</p>
+<h3 id="type-variables">Type Variables</h3>
+<p>Functions that take values of unknown types are called <em>polymorphic functions</em>, and have <em>polymorphic types</em>. A polymorphic type contains one or more <em>type variables</em>. These are like placeholders for the specific types to be used later.</p>
+<p>Type variables are introduced into the scope of a type signature by using the <code>forall</code> keyword, followed by one or more type variable names, and a terminating dot. This is called <em>universal quantification</em>.</p>
+<pre class="oden" language="oden"><code>identity : forall a. a -&gt; a</code></pre>
+<p>Multiple type variable names are separated by spaces.</p>
+<pre class="oden" language="oden"><code>compose : forall a b c. (b -&gt; c) -&gt; (a -&gt; b) -&gt; (a -&gt; c)</code></pre>
+<p>When applying a function to a value the function type is <em>instantiated</em> to match the type of the value. If we apply the <code>identity</code> function to a value of type <code>int</code>, the instantiated type of <code>identity</code> will be <code>int -&gt; int</code>. In other words, all occurences of the type variable <code>a</code> are substituted for <code>int</code>. These substitutions must match. The type <code>a -&gt; a</code> cannot be instantiated to <code>int -&gt; string</code>, as the type variable <code>a</code> cannot be unified with both <code>int</code> and <code>string</code>.</p>
+<h3 id="control-flow">Control Flow</h3>
+<p>The only control flow mechanism available right now is the <code>if</code> expression.</p>
+<pre class="oden" language="oden"><code>if 10 + 20 == 30 then 1 else 0</code></pre>
+<p>If the clauses get big you should consider using <a href="#blocks">blocks</a> around expressions, even if you have only a single expression in each block.</p>
+<pre class="oden" language="oden"><code>if 10 + 20 == 30 then {
+  thisFunctionCallIsVeryLengthy()
+} else {
+  andPerhapsThisOneAlso()
+}</code></pre>
+<p>The <code>if</code> expression can be seen as having the following type.</p>
+<pre class="oden" language="oden"><code>forall a. bool -&gt; a -&gt; a -&gt; a</code></pre>
+<p>It takes a condition of type <code>bool</code>, a <em>then</em> value, an <em>else</em> value, and evaluate to some of those two branch values. Therefore, the branch values and the if expression itself must have the same type.</p>
+<h5 id="other-constructs">Other Constructs</h5>
+<p>The plan is to support pattern matching as a central way to do control flow. Other constructs may appear in the future as well, like <code>cond</code> from LISPs or <em>Guards</em> from Erlang and Haskell.</p>
+<h3 id="blocks">Blocks</h3>
+<p>A block is an expression containing <em>one or more</em> expressions – it cannot be empty. A block expression evaluates to the value of the last expression in the block. Blocks can be used to perform side-effects.</p>
+<pre class="oden" language="oden"><code>x = {
+  println(&quot;Calculating...&quot;)
+  9 * 1000
+}
+// x will be 9000</code></pre>
+<p>Discarding the value of an expression, of any type other than <code>()</code>, causes an error.</p>
+<pre class="oden" language="oden"><code>x = {
+  ()       // ok to discard as it&#39;s of type ()
+  9 * 1000 // causes an error
+  println(&quot;Done wasting CPU.&quot;)
+}</code></pre>
+<h3 id="let-bindings">Let Bindings</h3>
+<p>The <em>let expression</em> binds identifiers to values, exposing the bindings in the body expression.</p>
+<pre class=><code>let <em>identifier<sub>1</sub></em> = <em>expression<sub>1</sub></em>
+    <em>identifier<sub>2</sub></em> = <em>expression<sub>2</sub></em>
+    ...
+    <em>identifier<sub>n</sub></em> = <em>expression<sub>n</sub></em>
+in <em>body-expression</em>
+</code></pre>
+<p>The following example binds the identifier <code>x</code> to the value <code>1</code> and uses the binding in its body expression <code>x + 2</code>.</p>
+<pre class="oden" language="oden"><code>let x = 1 in x + 2</code></pre>
+<p>Let supports sequential binding, which means that binding expressions can use the identifiers of previous bindings.</p>
+<pre class="oden" language="oden"><code>let x = 1
+    y = 1 + x
+in y / 2</code></pre>
+<p>Shadowing names is forbidden, and will result in a compile error.</p>
+<pre class="oden" language="oden"><code>let x = 1
+    x = x * 2 // not ok as x is already defined
+in x * 2</code></pre>
+<h3 id="tuples">Tuples</h3>
+<p>A <em>tuple</em> is an immutable finite ordered collection of values. The values in a tuple can have different types. Tuples are useful for grouping related data without having to name the values.</p>
+<p>Tuple value literals are denoted using two or more expressions separated by commas, enclosed in parenthesis.</p>
+<pre class=><code>(<em>expression<sub>1</sub></em>, <em>expression<sub>2</sub>, ..., </em><em>expression<sub>n</sub></em>)
+</code></pre>
+<p>In the following example we create some tuple values representing people by storing the name and age as pairs.</p>
+<pre class="oden" language="oden"><code>jessica = (&quot;Jessica&quot;, 31)
+frank = (&quot;Frank&quot;, 26)</code></pre>
+<p>Tuple types are written in a similar way to tuple value literals. The types of the tuple elements are separated by commas, and enclosed in parenthesis.</p>
+<pre class=><code>(<em>element-type<sub>1</sub></em>, <em>element-type<sub>2</sub>, ..., </em><em>element-type<sub>n</sub></em>)
+</code></pre>
+<p>Thus, the type of the values <code>jessica</code> and <code>frank</code>, from the previous example, is written <code>(string, int)</code>.</p>
+<h4 id="go-functions-with-multiple-return-values">Go Functions With Multiple Return Values</h4>
+<p>Functions in Go can have multiple return values. When importing such a function, Oden automatically converts it to return a single tuple value, with the Go return values as elements. Thus, there is no special case of multiple return values; all functions return one value.</p>
+<h3 id="slices">Slices</h3>
+<p>A <em>slice</em> is a collection of values typed only by the element type, not the length of the collection. All values in a slice must have the same type.</p>
+<p>Slice value literals are denoted using a left and a right square bracket, an opening curly bracket, zero or more expressions separated by commas, and a closing curly bracket.</p>
+<pre class=><code>[]{<em>element<sub>1</sub></em>, <em>element<sub>2</sub>, ..., </em><em>element<sub>n</sub></em>}
+</code></pre>
+<p>The following examples creates a slice of <code>string</code> values, called <code>names</code>, and a slice of <code>int</code> values, called <code>numbers</code>.</p>
+<pre><code>names = []{&quot;Sarah&quot;, &quot;Joe&quot;, &quot;Maxime&quot;}
+
+numbers = []{1, 2, 3, 4, 5}</code></pre>
+<p>To access the elements of a slice, we use the <em>subscript operator</em>. It is denoted in suffix position using an index expression enclosed in square brackets. The index expression must have type <code>int</code>.</p>
+<pre class=><code><em>slice-expression</em>[<em>index-expression</em>]
+</code></pre>
+<p>Slices indexes are <em>zero-based</em>, meaning the first element has index 0, the second element has index 1, and so on.</p>
+<p>The following example greets the first person in the slice of names.</p>
+<pre><code>greeting = &quot;Hello, &quot; ++ names[0]</code></pre>
+<p>Slices can be multi-dimensional. To access the inner elements, simply apply the subscript operator multiple times. The following example creates a multi-dimensional slice and access an inner element.</p>
+<pre><code>twoLevelSlice = []{[]{1, 2, 3}, []{4, 5, 6}}
+isSix = twoLevelSlice[1][2] == 6</code></pre>
+<h3 id="records">Records</h3>
+<p><em>Records</em> group related data into a composite structure using named elements, called <em>fields</em>. They are similar to objects in Javascript, but are statically typed by their fields. The order of fields in a record is not significant – two records are considered equal if they have the same set of fields with the same types.</p>
+<p>To create a record you use curly brackets enclosing a comma-separated list of field names and values to initialize the record value with. Each field name and value is separated by an equals sign.</p>
+<pre class=><code>{
+  <em>field<sub>1</sub></em> = <em>expression<sub>1</sub></em>,
+  <em>field<sub>2</sub></em> = <em>expression<sub>2</sub></em>,
+  ...
+  <em>field<sub>n</sub></em> = <em>expression<sub>n</sub></em>
+}
+</code></pre>
+<p>The following example creates a record value representing a player in a video game. Note that the field <code>attack</code> is itself of a record type.</p>
+<pre class="oden" language="oden"><code>player = {
+  health = 100,
+  attack = {
+    cooldown = 3,
+    damage = 5
+  },
+  armor = 30
+}</code></pre>
+<p>A record type is denoted by a set of field name and type pairs, with colons in between the names and types. The fields are separated by commas and enclosed in curly brackets.</p>
+<pre class=><code>{
+  <em>field<sub>1</sub></em> : <em>type<sub>1</sub></em>,
+  <em>field<sub>2</sub></em> : <em>type<sub>2</sub></em>,
+  ...
+  <em>field<sub>n</sub></em> : <em>type<sub>n</sub></em>
+}
+</code></pre>
+<p>The type of the value <code>player</code> from the previous example is:</p>
+<pre class="oden" language="oden"><code>{
+  health : int,
+  attack : {
+    cooldown : int,
+    damage : int
+  },
+  armor: int
+}</code></pre>
+<h4 id="record-fields">Record Fields</h4>
+<p>Fields of records can be accessed using the dot operator.</p>
+<pre class=><code><em>record-expression</em>.<em>field</em>
+</code></pre>
+<p>Continuing with our game theme, here’s a function taking a player record value and accessing its field <code>attack</code>, and the nested <code>damage</code> and <code>cooldown</code> fields.</p>
+<pre class="oden" language="oden"><code>damagePerMinute(p) =
+  p.attack.damage * 60 / p.attack.cooldown</code></pre>
+<p>The type of <code>damagePerMinute</code> is inferred to take an argument <code>p</code> of the following type.</p>
+<pre class="oden" language="oden"><code>{
+  attack : {
+    damage : int,
+    cooldown : int
+    | b
+  }
+  | a
+}</code></pre>
+<p>Here <code>a</code> and <code>b</code> are <em>row variables</em>. But what is a row variable? And what does the pipe character mean in a record type? Read on and you will learn more about them in the next section.</p>
+<h4 id="polymorphic-records-and-row-variables">Polymorphic Records and Row Variables</h4>
+<p>A record type can be polymorphic, i.e. it can contain an unknown set of fields. This is useful when you want to write a function taking record values having certain fields, but you don’t care they have extra fields or not. This can be expressed in the type system using a <em>row varible</em>. The row variable captures any extra fields when the type is instantiated.</p>
+<p>To denote a polymorphic record type, write a pipe character and the row variable after the set of fields.</p>
+<pre class=><code>{
+  <em>field<sub>1</sub></em> : <em>type<sub>1</sub></em>,
+  <em>field<sub>2</sub></em> : <em>type<sub>2</sub></em>,
+  ...
+  <em>field<sub>n</sub></em> : <em>type<sub>n</sub></em>
+  | <em>row-variable</em>
+}
+</code></pre>
+<p>The following type signature says that <code>getName</code> takes any record with at least the field <code>name</code> with type <code>string</code>. When instantiated with a concrete record type the row variable <code>r</code> will be bound to a row all fields of the record except <code>name</code>.</p>
+<pre><code>getName : forall r. { name : string | r } -&gt; string</code></pre>
+<p>For more information on these concepts, see <span class="citation" data-cites="gaster1996polymorphic">Gaster and Jones (1996)</span> and <span class="citation" data-cites="leijen2005extensible">Leijen (2005)</span>.</p>
+<h3 id="protocols">Protocols</h3>
+<p>In Oden, and in funtional programming in general, you can go a long way with data and functions. Sometimes, however, it is useful to be able to create functions taking arbitrary data types as arguments, as long as they follow certain contracts. In Oden we use <em>protocols</em> to encode such contracts.</p>
+<p>A protocol has a name contains a set of zero or more <em>methods</em>. A <em>protocol definition</em> is denoted using the <code>protocol</code> keyword, the protocol name, and the set of methods, enclosed in curly braces. Methods are names and type signatures, similar to top-level type annotations.</p>
+<pre class=><code>procotol <em>protocol-name</em> {
+  <em>method-name<sub>1</sub></em> : <em>method-type<sub>1</sub></em>
+  <em>method-name<sub>2</sub></em> : <em>method-type<sub>2</sub></em>
+  ...
+  <em>method-name<sub>n</sub></em> : <em>method-type<sub>n</sub></em>
+}
+</code></pre>
+<p>Given a defined protocol you can <em>implement</em> the protocol for a specific type. The implementation is denoted using the <code>impl</code> keyword, the protocol name followed, by the implementation type enclosed in parenthesis. Inside the curly braces the methods are implemented using the same syntax as top-level definitions.</p>
+<pre class=><code>impl <em>protocol-name</em>(<em>type</em>) {
+  <em>method-implementation<sub>1</sub></em>
+  <em>method-implementation<sub>2</sub></em>
+  ...
+  <em>method-implementation<sub>n</sub></em>
+}
+</code></pre>
+<p>When the compiler encounters the use of a protocol method together with a data type it checks if there’s an implementation in scope that it can use. If not, you will get a compile error. If there is <em>a single implementation</em>, that one will be used in the compiled program. The dispatch is done at compile time.</p>
+<p>Let’s use protocols to make some animal sounds.</p>
+<pre class="oden playground-runnable" language="oden"><code>package main
+
+protocol Animal(a) {
+  sound : a -&gt; string
+}
+
+type Dog = { friendly : bool }
+type Chicken = { female : bool }
+
+impl Animal(Dog) {
+  sound(dog) =
+    if dog.friendly
+      then &quot;Woof!&quot;
+      else &quot;Grrrrr...&quot;
+}
+
+impl Animal(Chicken) {
+  sound(chicken) =
+    if chicken.female
+      then &quot;Cluck!&quot;
+      else &quot;Cockadoodledoo!&quot;
+}
+
+main() = {
+  println(Animal::sound({ friendly = false }))
+  println(Animal::sound({ female = true }))
+}</code></pre>
+<h5 id="work-in-progress">Work In Progress</h5>
+<p>As Oden has only transparent type aliases right now, it is unclear in this code that we create a <code>Dog</code> value and a <code>Chicken</code> value. Have patience; more type constructs will arrive.</p>
+<p>As you might have noticed, methods have to be fully qualified with the <code>Protocol::Method</code> syntax. This restriction might be lifted in the future, enabling you to write only the method name, if it can be unambigously resolved.</p>
+<h4 id="overloading-operators">Overloading Operators</h4>
+<p>Protocols are used in Oden to provide <em>overloaded operators</em>. The built-in operators are aliases for standard protocols methods, such as <code>Num</code>, <code>Equality</code>, and <code>Monoid</code>. As you can implementation a protocol for a data type, you can effectively overload any built-in operator for that data type.</p>
+<p>In the following example we implement the <code>Monoid</code> protocol for our <code>Point2D</code> data type, which enables us to use the <code>++</code> operator to add <code>Point2D</code> values.</p>
+<pre class="oden playground-runnable" language="oden"><code>package main
+
+// A point in 2D space.
+type Point2D = { x: int, y: int }
+
+// We implement the built-in Monoid protocol
+// for Point2D.
+impl Monoid(Point2D) {
+  Apply(p1, p2) = {
+    x = p1.x + p2.x,
+    y = p1.y + p2.y
+  }
+  Identity = { x = 0, y = 0 }
+}
+
+// Let&#39;s create some points.
+position = { x = 1, y = 3 }
+distance = { x = 5, y = 7 }
+
+// With the implementation in scope we can
+// now use the ++ operator together with
+// our Point2D type.
+target : Point2D
+target = position ++ distance
+
+main() = {
+  println(target)
+}</code></pre>
+<h4 id="compatibility-with-go">Compatibility with Go</h4>
+<p>Protocols are not compatible with Go interfaces yet.</p>
+<h4 id="influences">Influences</h4>
+<p>The concept of protocols is not new, in fact it is very similar to <a href="https://www.haskell.org/tutorial/classes.html"><em>type classes</em></a> in Haskell and <a href="https://doc.rust-lang.org/book/traits.html"><em>traits</em></a> in Rust.</p>
+<h2 id="references" class="unnumbered">References</h2>
+<div id="refs" class="references">
+<div id="ref-gaster1996polymorphic">
+<p>Gaster, Benedict R, and Mark P Jones. 1996. “A Polymorphic Type System for Extensible Records and Variants.” Technical Report NOTTCS-TR-96-3, Department of Computer Science, University of Nottingham.</p>
+</div>
+<div id="ref-leijen2005extensible">
+<p>Leijen, Daan. 2005. “Extensible Records with Scoped Labels.” <em>Trends in Functional Programming</em> 5: 297–312.</p>
+</div>
+</div>
+<footer>
+  ©
+  <span itemprop="copyrightYear">2015-2016</span>
+  <span itemprop="author">Oskar Wickström</span>
+</footer>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72558269-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

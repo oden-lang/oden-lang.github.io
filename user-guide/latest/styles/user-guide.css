@@ -1,0 +1,284 @@
+html, body {
+  height: 100%;
+}
+body {
+  font-family: "Crimson", serif;
+
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1em;
+
+  line-height: 22px;
+  color: #111;
+  font-size: 18px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+p, pre, table, ul, ol {
+  margin: 1em 0;
+}
+
+ul ol,
+ul ul,
+ol ul,
+ol ol {
+  margin: 0 0 0;
+}
+
+ul li,
+ol li {
+  margin-bottom: .5em;
+}
+
+li > a + ul,
+li > a + ol {
+  margin-top: .5em;
+}
+
+pre {
+  position: relative;
+  padding: 1em 2em;
+  overflow: auto;
+}
+pre,
+code,
+.controls .output {
+  font-family: "Fira Mono", monospace;
+  line-height: inherit;
+  font-size: 17px;
+}
+
+pre, .hljs, .hljs-subst {
+    color: #111;
+}
+
+pre:before {
+  display: block;
+  content: attr(caption);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+pre:before,
+table caption {
+  font-family: "Crimson Text", "Baskerville", serif;
+  font-style: italic;
+  font-size: 16px;
+  text-align: center;
+}
+table {
+  border-spacing: 0;
+  border-collapse: separate;
+}
+table caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+table th,
+table td {
+  padding: 4px;
+}
+table th {
+  padding: 6px 4px 4px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+  font-weight: 400;
+}
+
+body > table {
+  position: relative;
+  width: 100%;
+  padding: 2em;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    font-size: 16px;
+  }
+  pre {
+    padding: 1.5em 0;
+  }
+  code, pre {
+    font-size: 14px;
+  }
+  pre:before,
+  table caption {
+    font-size: 14px;
+  }
+}
+
+a {
+  color: #2a7ae2;
+  text-decoration: none;
+}
+a:visited {
+  color: #1756a9;
+}
+a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+p {
+  text-align: justify;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 800;
+  margin: 1em 0 .5em 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  line-height: 44px;
+  margin: 88px 0 44px;
+}
+
+h3, h4, h5, h6 {
+  margin: 22px 0;
+  line-height: inherit;
+  font-weight: 600;
+}
+h3 {
+  font-size: 100%;
+  font-family: "Fira Sans", sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+h4 {
+  font-size: 100%;
+}
+h5,
+h6 {
+  font-size: 90%;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+.pdf-links {
+  text-align: center;
+}
+.logo {
+  margin-top: 6em;
+  text-align: center;
+}
+header {
+  text-align: center;
+  margin: 3em 0 6em 0;
+}
+header p {
+  text-align: center;
+}
+footer {
+  text-align: center;
+  margin: 3em 0 1em 0;
+  font-size: 90%;
+}
+
+.title,
+.version,
+h2 {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 200%;
+}
+.version {
+  font-size: 100%;
+}
+.author {
+  display: block;
+  font-size: 100%;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 3em;
+}
+
+.controls nav {
+  display: block;
+  float: right;
+}
+.controls:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.controls nav form {
+  display: inline-block;
+}
+
+.controls nav button,
+.controls nav input {
+  display: inline-block;
+  padding: 5px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  background: none;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #2a7ae2;
+}
+.controls .run:hover,
+.controls .run:focus,
+.controls .run:active
+{
+  color: #1756a9;
+}
+.controls .output {
+  margin-bottom: $spacing-unit;
+  font-style: italic;
+}
+.controls .output.hidden {
+  display: none;
+}
+.controls .output.error {
+  font-size: 17px;
+  font-style: normal;
+  color: #dd1144;
+  background-color: #FBE2E8;
+}
+
+@keyframes blink {
+  50% { color: transparent }
+}
+
+.loader .dot {
+  animation: 1s blink infinite
+}
+.loader .dot:nth-child(2) {
+  animation-delay: 250ms
+}
+.loader .dot:nth-child(3) {
+  animation-delay: 500ms
+}

@@ -362,9 +362,14 @@ $header-logo-height: 40px;
 
   .description {
     font-size: 200%;
-    margin: $spacing-unit * 2 0 $spacing-unit * 2;
+    margin: $spacing-unit * 2 0 $spacing-unit;
     text-align: center;
     font-weight: 300;
+  }
+  .disclaimer {
+    display: block;
+    margin-top: $spacing-unit;
+    color: red;
   }
 }
 

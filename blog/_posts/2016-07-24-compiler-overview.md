@@ -13,7 +13,7 @@ This week I got a request for a documented overview of the compiler and how it
 integrates with the Go compiler and runtime. I have just written the starting
 point of such a document and added it to the Oden repository. If you're
 interested, have a look at
-[doc/compiler-overview.md](https://github.com/oden-lang/oden/blob/master/doc/compiler-overview.md#compiler-overview.).
+[doc/compiler-overview.md](https://github.com/oden-lang/oden/blob/master/doc/compiler-overview.md#compiler-overview).
 
 If you have any suggestions please post them as GitHub issues. Other cheerful
 comments are welcome here or at Twitter. 🙏🏾
